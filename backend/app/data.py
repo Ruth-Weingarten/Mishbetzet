@@ -179,8 +179,10 @@ def blocked():
 
 # כללי בית הספר שהמנהלת סימנה מהרשימה (נשמרו מהשנה הקודמת)
 SCHOOL_RULES = [
-    {"id": "R1", "kind": "first_period_kodesh", "params": {},
-     "text": "מקצוע קודש בשעה הראשונה בכל יום"},
+    {"id": "R1", "kind": "first_period_kodesh", "params": {"min_days": 4},
+     "text": "מקצוע קודש בשעה הראשונה לפחות ב־4 מתוך 6 ימים בכל כיתה"},
+    {"id": "R20", "kind": "teacher_free_day_base", "params": {"min_free_days": 1}, "hard": True,
+     "text": "לכל מורה לפחות יום חופשי אחד בשבוע (אין מורה שעובדת 6 ימים)"},
     {"id": "R5", "kind": "subject_days", "params": {"subject": "פ. שבוע", "days": [2, 3, 4, 5]},
      "text": "פרשת שבוע מיום שלישי והלאה"},
     {"id": "R6", "kind": "no_double", "params": {"subject": "חשבון", "grades": GRADES[:5]},

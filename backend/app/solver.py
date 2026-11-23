@@ -182,6 +182,16 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
                     for p in range(D.PERIODS_PER_DAY[5]):
                         m.Add(occ[c, 5, p] == 1)
 
+        elif k == "teacher_free_day_base":
+            # חובה: לכל מורה לפחות יום חופשי אחד בשבוע (אין מורה שעובדת 6 ימים)
+            for t in D.TEACHERS:
+                works = []
+                for d in range(6):
+                    w = m.NewBoolVar("")
+                    m.AddMaxEquality(w, [busy[t, d, p] for p in range(D.PERIODS_PER_DAY[d])])
+                    works.append(w)
+                m.Add(sum(works) <= 6 - prm.get("min_free_days", 1))
+
         elif k == "teacher_max_wait":
             # חובה: מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום
             mx = prm.get("max_wait", 1)
@@ -196,6 +206,19 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
         elif k == "first_period_kodesh":
             for c in D.CLASSES:
                 kod = [s for s in D.CLASS_CURRICULUM[c] if D.SUBJECTS[s] == "kodesh" and not is_pullout(c, s)]
+                if "min_days" in prm:
+                    # במערכת האמיתית: קודש בשעה הראשונה ברוב הימים, לא בכולם.
+                    # הכלל: לפחות min_days ימים בכל כיתה. כל יום חסר מעבר לכך הוא הפרה.
+                    miss = []
+                    for d in range(6):
+                        got = m.NewBoolVar("")
+                        m.Add(sum(y[c, s, d, 0] for s in kod) >= got)
+                        miss.append(1 - got)
+                    allowed = 6 - prm["min_days"]
+                    extra = m.NewIntVar(0, 6, "")
+                    m.Add(extra >= sum(miss) - allowed)
+                    soft(cons, c, f"{c} · קודש בשעה הראשונה בפחות מ־{prm['min_days']} ימים", extra)
+                    continue
                 for d in range(6):
                     v = m.NewBoolVar("")
                     m.Add(sum(y[c, s, d, 0] for s in kod) + v >= 1)

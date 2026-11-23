@@ -1,10 +1,24 @@
 import { useState } from 'react'
+import { api } from '../api'
 import type { School } from '../types'
 
 const TAB_COLORS = ['#F2C14E', '#A9CBE3', '#E9B8A6', '#B7D3B0']
 
-export default function Assignment({ school }: { school: School }) {
+export default function Assignment({ school, onChanged }: { school: School; onChanged: () => void }) {
   const [grade, setGrade] = useState(school.grades[0])
+  const [edit, setEdit] = useState<{ cls: string; subject: string; teachers: string[] } | null>(null)
+  const [error, setError] = useState('')
+  const names = school.teachers.map(t => t.name).sort((a, b) => a.localeCompare(b, 'he'))
+
+  const save = async () => {
+    if (!edit) return
+    setError('')
+    try {
+      await api.patchAssignment(edit.cls, edit.subject, edit.teachers)
+      setEdit(null)
+      onChanged()
+    } catch (e) { setError((e as Error).message) }
+  }
   const classes = school.classes.filter(c => c.startsWith(grade))
   const cell = (c: string, s: string) => school.assignment.find(a => a.cls === c && a.subject === s)
   // המקצועות של השכבה: כל מקצוע שנלמד לפחות באחת הכיתות שלה
@@ -15,7 +29,7 @@ export default function Assignment({ school }: { school: School }) {
       <div className="page-head">
         <div>
           <h1 className="chalk-title">שיבוץ מורות · שכבה {grade}</h1>
-          <p>מי מלמדת כל מקצוע בכל כיתה, וכמה שעות. בהדגמה הטבלה קבועה, ובגרסה המלאה היא נפתחת מהשנה הקודמת וניתנת לעריכה.</p>
+          <p>מי מלמדת כל מקצוע בכל כיתה, וכמה שעות. לחצי על משבצת כדי להחליף מורה. השינוי חל מהבנייה הבאה, ונשמר עד שהשרת מופעל מחדש.</p>
         </div>
       </div>
       {school.problems.length > 0 && (
@@ -71,7 +85,10 @@ export default function Assignment({ school }: { school: School }) {
                     const clash = a.kind !== 'pool' && a.teachers.some(t => school.teachers.find(x => x.name === t)?.blocked.includes(c))
                     return (
                       <td key={c}>
-                        <div className={`cell ${a.homeroom ? 'hr' : ''}`} style={clash ? { background: '#FBE7DF', border: '2px solid #D9532C' } : undefined}>
+                        <div className={`cell ${a.homeroom ? 'hr' : ''}`} role="button" tabIndex={0}
+                          onClick={() => setEdit({ cls: c, subject: s, teachers: [...a.teachers] })}
+                          onKeyDown={e => { if (e.key === 'Enter') setEdit({ cls: c, subject: s, teachers: [...a.teachers] }) }}
+                          style={{ cursor: 'pointer', ...(clash ? { background: '#FBE7DF', border: '2px solid #D9532C' } : {}) }}>
                           {a.homeroom ? 'מחנכת' : a.block ? 'הקבצה' : a.teachers[0]}
                           {a.block && <span style={{ display: 'block', fontSize: 12 }} className="muted">{a.teachers.length} מורות, יחד עם כיתות מקבילות</span>}
                           {!a.block && a.kind === 'parallel' && <span style={{ display: 'block', fontSize: 12 }} className="muted">+ {a.teachers.slice(1).join(', ')} (מקביל)</span>}
@@ -88,6 +105,37 @@ export default function Assignment({ school }: { school: School }) {
           </tbody>
         </table>
       </div>
+
+      {edit && (
+        <div className="card" role="dialog" aria-label="עריכת שיבוץ" style={{ marginTop: 18, padding: '16px 20px', border: '2px solid var(--chalk)' }}>
+          <h2 style={{ margin: '0 0 6px', fontSize: 22 }}>{edit.subject} · {edit.cls}</h2>
+          {(school.assignment.find(a => a.cls === edit.cls && a.subject === edit.subject)?.block) && (
+            <p className="muted" style={{ margin: '0 0 8px', fontSize: 14 }}>זו הקבצה: השינוי חל על כל הכיתות שבה.</p>
+          )}
+          {(school.assignment.find(a => a.cls === edit.cls && a.subject === edit.subject)?.homeroom) && (
+            <p className="muted" style={{ margin: '0 0 8px', fontSize: 14 }}>זו משבצת של המחנכת: החלפה תחליף את מחנכת הכיתה בכל המקצועות שלה.</p>
+          )}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, maxWidth: 420 }}>
+            {edit.teachers.map((t, i) => (
+              <div key={i} className="row" style={{ flexWrap: 'nowrap' }}>
+                <select value={t} style={{ flex: 1, fontSize: 15, padding: 6 }} aria-label={`מורה ${i + 1}`}
+                  onChange={e => setEdit({ ...edit, teachers: edit.teachers.map((x, j) => (j === i ? e.target.value : x)) })}>
+                  {names.map(n => <option key={n} value={n}>{n}</option>)}
+                </select>
+                {edit.teachers.length > 1 && (
+                  <button className="btn ghost" onClick={() => setEdit({ ...edit, teachers: edit.teachers.filter((_, j) => j !== i) })}>הסרה</button>
+                )}
+              </div>
+            ))}
+          </div>
+          {error && <p role="alert" style={{ color: '#B3261E' }}>{error}</p>}
+          <div className="row" style={{ marginTop: 12 }}>
+            <button className="btn" onClick={save}>שמירה</button>
+            <button className="btn ghost" onClick={() => setEdit({ ...edit, teachers: [...edit.teachers, names[0]] })}>הוספת מורה במקביל</button>
+            <button className="btn ghost" onClick={() => { setEdit(null); setError('') }}>ביטול</button>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -85,7 +85,7 @@ export default function App() {
         <main>
           {tab === 'dash' && <Dashboard school={school} run={run} go={setTab} />}
           {tab === 'forms' && <Forms school={school} />}
-          {tab === 'assign' && <Assignment school={school} />}
+          {tab === 'assign' && <Assignment school={school} onChanged={loadSchool} />}
           {tab === 'rules' && <Rules school={school} onChanged={loadSchool} />}
           {tab === 'work' && <Workspace school={school} run={run} setRun={setRun} />}
         </main>

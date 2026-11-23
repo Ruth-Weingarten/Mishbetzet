@@ -113,6 +113,48 @@ def patch_rule(rule_id: str, body: RulePatch):
     return rule
 
 
+# ---------- שיבוץ מורות: עריכה ----------
+
+class AssignmentPatch(BaseModel):
+    cls: str
+    subject: str
+    teachers: list[str]
+
+
+@app.put("/api/assignment")
+def patch_assignment(body: AssignmentPatch):
+    """מחליפה את המורות של מקצוע בכיתה. בהקבצה השינוי חל על כל הכיתות שבה.
+    במשבצת של מחנכת: מחנכת הכיתה מתחלפת בכל מקצועות המחנכת של הכיתה."""
+    key = (body.cls, body.subject)
+    info = D.ASSIGNMENT.get(key)
+    if info is None:
+        raise HTTPException(404, "המשבצת לא נמצאה")
+    teachers = [t for i, t in enumerate(body.teachers) if t and t not in body.teachers[:i]]
+    if not teachers:
+        raise HTTPException(400, "צריכה להיות לפחות מורה אחת")
+    unknown = [t for t in teachers if t not in D.TEACHERS]
+    if unknown:
+        raise HTTPException(400, f"מורה לא מוכרת: {', '.join(unknown)}")
+
+    def apply(cell, names):
+        cell["teachers"] = list(names)
+        cell["kind"] = "parallel" if len(names) > 1 else "fixed"
+
+    if info["block"]:
+        block = D.BLOCKS[info["block"]]
+        block["teachers"] = list(teachers)
+        for c in block["classes"]:
+            apply(D.ASSIGNMENT[(c, block["subject"])], teachers)
+    elif info["homeroom"]:
+        D.HOMEROOM[body.cls] = teachers[0]
+        for (c, _), cell in D.ASSIGNMENT.items():
+            if c == body.cls and cell["homeroom"]:
+                apply(cell, [teachers[0]])
+    else:
+        apply(info, teachers)
+    return {"problems": D.data_problems()}
+
+
 # ---------- טופס המורה: גרף קטן עם אישור של המורה ----------
 
 class TeacherText(BaseModel):

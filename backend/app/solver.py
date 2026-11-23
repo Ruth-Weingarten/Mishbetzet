@@ -24,7 +24,7 @@ DEFAULT_WEIGHTS = {
     "avoid_prev_homeroom": 2,
 }
 WEIGHT = 10
-GAP_WEIGHT = 2   # קנס לכל חלון של מורה, בנוסף לכללים
+GAP_WEIGHT = 6   # קנס לכל חלון של מורה, בנוסף לכללים
 
 
 def _period_label(d, p):
@@ -171,7 +171,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
             for c in D.CLASSES:
                 total = sum(h for s, h in D.CLASS_CURRICULUM[c].items() if not is_pullout(c, s))
                 avg = (total - D.PERIODS_PER_DAY[5]) / 5
-                lo = max(3, int(avg) - spread_by)
+                lo = min(prm.get("min_lessons", 5), int(avg))   # אין כיתה עם פחות מ-5 שיעורים ביום (ראשון-חמישי)
                 for d in range(5):
                     hi = min(D.PERIODS_PER_DAY[d], -(-int(avg * 10) // 10) + spread_by)
                     day_total = sum(occ[c, d, p] for p in range(D.PERIODS_PER_DAY[d]))
@@ -265,11 +265,12 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
 
         elif k == "max_gaps_per_week":
             # סך החלונות של המורה בכל השבוע
+            # הקנס עולה עם כל חלון מעל המותר (לא רק "עברה / לא עברה")
             mx = prm.get("max", 2)
             for t in D.TEACHERS:
                 week = [g for d in range(6) for g in day_gaps(t, d)]
-                v = m.NewBoolVar("")
-                m.Add(sum(week) <= mx + len(week) * v)
+                v = m.NewIntVar(0, len(week), "")
+                m.Add(v >= sum(week) - mx)
                 soft(cons, t, t, v)
 
         elif k == "min_lessons_per_day":

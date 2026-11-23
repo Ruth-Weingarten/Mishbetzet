@@ -145,7 +145,7 @@ def _subjects_of(t):
     return sorted({s for (c, s), a in ASSIGNMENT.items() if t in a["teachers"]})
 
 
-FORMS = {
+_BASE_FORMS = {
     "נוסבוים פייגי":       _form("שלישי", None, _subjects_of("נוסבוים פייגי")),
     "קלוגר רחל":     _form("שלישי", None, _subjects_of("קלוגר רחל")),
     "כץנלבוגן טובה":       _form("חמישי", None, _subjects_of("כץנלבוגן טובה")),
@@ -167,6 +167,9 @@ FORMS = {
                                              "params": {"teacher": "כהנוביץ אסנת", "day": 0, "last_period": 1},
                                              "summary": "כהנוביץ אסנת: ביום ראשון לסיים עד 09:30"}),
 }
+
+
+FORMS = {}   # מתמלא בסוף הקובץ (_make_forms), אחרי שחושבו שעות המורות
 
 
 def blocked():
@@ -194,6 +197,22 @@ SCHOOL_RULES = [
      "text": "מורה שמגיעה לשני שיעורים בלבד: צמודים, ומסיימת עד 10:30"},
     {"id": "R14", "kind": "max_work_days", "params": {"threshold": 20, "above": 5, "below": 4},
      "text": "מורה עם יותר מ-20 שעות: עד 5 ימי עבודה. עד 20 שעות: עד 4 ימים"},
+    {"id": "R2", "kind": "spread", "params": {"subject": "אנגלית"},
+     "text": "אנגלית: לא יותר משיעור אחד ביום בכיתה"},
+    {"id": "R3", "kind": "spread", "params": {"subject": "הסטוריה"},
+     "text": "היסטוריה: לא שני שיעורים באותו יום"},
+    {"id": "R4", "kind": "spread", "params": {"subject": "גאוגרפיה"},
+     "text": "גאוגרפיה: לא שני שיעורים באותו יום"},
+    {"id": "R7", "kind": "subject_days", "params": {"subject": "חשבון", "days": [0, 1, 2, 3, 4]},
+     "text": "חשבון לא ביום שישי (היום הקצר)"},
+    {"id": "R9", "kind": "subject_days", "params": {"subject": "אנגלית", "days": [0, 1, 2, 3, 4]},
+     "text": "אנגלית לא ביום שישי"},
+    {"id": "R15", "kind": "subject_days", "params": {"subject": "מלאכה", "days": [0, 1, 2, 3, 4]},
+     "text": "מלאכה לא ביום שישי"},
+    {"id": "R16", "kind": "subject_days", "params": {"subject": "מחשבים", "days": [0, 1, 2, 3, 4]},
+     "text": "מחשבים לא ביום שישי"},
+    {"id": "R17", "kind": "spread", "params": {"subject": "דקדוק"},
+     "text": "דקדוק: לא שני שיעורים באותו יום"},
 ]
 
 # הערות חופשיות של המנהלת (יתורגמו לכללים)
@@ -206,6 +225,15 @@ PRINCIPAL_NOTES = [
     {"id": "N6", "text": "נעמי פרנק - ראשון ורביעי לסיים ב-11:00."},
     {"id": "N7", "text": "רבינוביץ - 4 ימים, שעות יותר מוקדמות."},
     {"id": "N8", "text": "אם החלפה של שעה בשנתון אחר יכולה להועיל - אפשרי בהתייעצות."},
+    {"id": "N9", "text": "גולדשמידט יהודית - יום ראשון חופשי."},
+    {"id": "N10", "text": "ווגל גאולה - לא לשבץ בשעה השביעית."},
+    {"id": "N11", "text": "טורק שרה - ביום חמישי לסיים עד 12:15."},
+    {"id": "N12", "text": "הלר מרים - ביום שלישי להתחיל רק מהשעה השלישית."},
+    {"id": "N13", "text": "קנובלוך רבקה - ללא יום שישי."},
+    {"id": "N14", "text": "שוורץ פערל - ביום שני בלי שעה ראשונה."},
+    {"id": "N15", "text": "רייכמן חוה - ללא ימי שלישי."},
+    {"id": "N16", "text": "תודה לכולן על שיתוף הפעולה, ושתהיה שנה טובה."},
+    {"id": "N17", "text": "כדאי להתחשב ככל האפשר בבקשות של המורות הותיקות."},
 ]
 
 
@@ -295,3 +323,123 @@ def school_snapshot():
         "notes": PRINCIPAL_NOTES,
         "problems": data_problems(),
     }
+
+
+# ---------------------------------------------------------------------
+# טפסים של כל המורות (שמות בדויים). חלק מהבקשות כבר מאושרות בתרגום,
+# חלק נשארות טקסט חופשי שהמערכת לא מתרגמת לכלל, כמו אצל מורות אמיתיות.
+# ---------------------------------------------------------------------
+
+def _confirmed(kind, summary, params):
+    return {"matched": True, "kind": kind, "params": params, "summary": summary}
+
+
+def _end(t, day, last_period, label):
+    return (f"ביום {DAYS[day]} לסיים עד {label}", _confirmed(
+        "teacher_end_by", f"{t}: ביום {DAYS[day]} לסיים עד {PERIOD_TIMES[last_period][1]}",
+        {"teacher": t, "day": day, "last_period": last_period}))
+
+
+def _start(t, day, first_period, label):
+    return (f"ביום {DAYS[day]} להתחיל מ-{label}", _confirmed(
+        "teacher_start_from", f"{t}: ביום {DAYS[day]} להתחיל מ-{PERIOD_TIMES[first_period][0]}",
+        {"teacher": t, "day": day, "first_period": first_period}))
+
+
+def _not(t, periods, days, text, summary):
+    params = {"teachers": [t], "periods": periods}
+    if days:
+        params["days"] = days
+    return (text, _confirmed("teacher_not_periods", summary, params))
+
+
+def _make_forms():
+    import random
+    rng = random.Random(5787)
+    hours = teacher_hours()
+    forms = dict(_BASE_FORMS)
+
+    # בקשות חופשיות שהמורה אישרה את התרגום שלהן
+    t = "אורנשטיין רחל";   forms[t] = ("ביום ראשון אני מתחילה רק מ-9:45",) + (_start(t, 0, 2, "9:45")[1],)
+    t = "אייזנברג דבורה";  forms[t] = ("ביום רביעי אני חייבת לצאת ב-11:15",) + (_end(t, 3, 3, "11:15")[1],)
+    t = "אלטמן עדינה";     forms[t] = _not(t, [0], [2], "בימי שלישי בלי שעה ראשונה, בבקשה",
+                                           f"{t}: ביום שלישי לא בשעה הראשונה")
+    t = "ארליך חנה";       forms[t] = _not(t, [6], None, "אני לא יכולה בשעה השביעית",
+                                           f"{t}: לא בשעה השביעית")
+    t = "בארי פנינה";      forms[t] = ("ביום חמישי לסיים ב-11:15",) + (_end(t, 4, 3, "11:15")[1],)
+    t = "בוקסבוים מינדי";  forms[t] = ("ביום שני אפשר רק מ-11:30",) + (_start(t, 1, 4, "11:30")[1],)
+    t = "ברגמן הודיה";     forms[t] = _not(t, [5, 6], [0, 2], "בימי ראשון ושלישי בלי שעות אחרי 12:15",
+                                           f"{t}: בימי ראשון ושלישי לא בשעות 12:15 ואילך")
+    t = "ברנדס תמר";       forms[t] = ("ביום שלישי עד 10:30",) + (_end(t, 2, 2, "10:30")[1],)
+    t = "גוטליב שיינדי";   forms[t] = _not(t, [0], None, "לא להתחיל לפני 8:45",
+                                           f"{t}: לא בשעה הראשונה")
+    t = "גולדפרב אלישבע";  forms[t] = ("ביום רביעי מ-9:45",) + (_start(t, 3, 2, "9:45")[1],)
+    t = "גוראריה קילא";    forms[t] = ("ביום שני אני מסיימת ב-10:30",) + (_end(t, 1, 2, "10:30")[1],)
+    t = "דויטש גאולה";     forms[t] = ("ביום חמישי מתחילה ב-9:45",) + (_start(t, 4, 2, "9:45")[1],)
+    t = "דרוק תהילה";      forms[t] = _not(t, [5, 6], None, "בלי שיעור בשעה השישית והשביעית",
+                                           f"{t}: לא בשעות השישית והשביעית")
+    t = "הורוביץ צפורה";   forms[t] = ("ביום שני לסיים ב-11:15",) + (_end(t, 1, 3, "11:15")[1],)
+    t = "הכט זהבה";        forms[t] = ("ביום ראשון עד 10:30",) + (_end(t, 0, 2, "10:30")[1],)
+    t = "וינברג רחל";      forms[t] = ("ביום שלישי מתחילה מ-9:45",) + (_start(t, 2, 2, "9:45")[1],)
+
+    # מורות שהמערכת לא מתרגמת את הבקשה שלהן לכלל (נשארות הערה למנהלת)
+    free_only = {
+        "גינזבורג הודיה": "תודה רבה על ההתחשבות בשנים הקודמות!",
+        "זילברמן עדינה": "אשמח ללמד שני שיעורים רצופים באותה כיתה",
+        "חזן דבורה": "לפעמים אצטרך להחליף ימים בגלל אירועים במשפחה, אתאם בהמשך",
+        "יפה חנה": "אני מעדיפה ללמד בקומה הראשונה",
+        "ליבוביץ מרים": "תודה, ובבקשה לא יותר מארבעה שיעורים רצופים",
+        "מילר תמר": "אשמח אם אפשר לשבץ אותי בשעה השלישית עם כיתה ו'",
+        "סופר מרים": "תודה רבה!",
+        "עמרם הניה": "אם אפשר ללמד את אותה כיתה באותה שעה בכל יום",
+        "פוגל סימה": "אשמח להקל קצת בשעות, יש לי לימודים בערב",
+        "צייטלין טליה": "אפשר לתאם איתי החלפות כשצריך, אני גמישה",
+    }
+    for t, txt in free_only.items():
+        forms[t] = txt
+
+    # מי שכבר יש לה טופס או בקשה: לא נוגעים. לשאר: מגרילים יום חופשי (קבוע, לפי זרע)
+    explicit = set(forms)
+    day_names = DAYS
+    weights = [2, 2, 2, 2, 2, 3]
+    out = {}
+    for t in TEACHERS:
+        if t == "משרה פנויה":
+            continue
+        v = forms.get(t)
+        if isinstance(v, dict):
+            out[t] = v
+        elif isinstance(v, tuple):
+            out[t] = _form(None, None, _subjects_of(t), free_text=v[0], confirmed_rule=v[1])
+        elif isinstance(v, str):
+            out[t] = _form(None, None, _subjects_of(t), free_text=v)
+        else:
+            free = None
+            alt = None
+            if hours.get(t, 0) < 23 and rng.random() < 0.52:
+                d = rng.choices(range(6), weights)[0]
+                free = day_names[d]
+                if rng.random() < 0.6:
+                    alt = day_names[rng.choice([x for x in range(6) if x != d])]
+            out[t] = _form(free, alt, _subjects_of(t))
+
+    # מורות שהמנהלת כתבה עליהן הערה: בלי יום חופשי נוסף מהטופס
+    for t in ["גולדשמידט יהודית", "ווגל גאולה", "טורק שרה", "הלר מרים",
+              "קנובלוך רבקה", "שוורץ פערל", "רייכמן חוה"]:
+        if t in out:
+            out[t]["free_day"] = None
+            out[t]["alt_day"] = None
+
+    # כמה בקשות מיוחדות נוספות בטופס עצמו
+    def _upd(t, **kw):
+        if t in out:
+            out[t].update(kw)
+    _upd("טננבוים זהבה", reduce_hours=2, reason="לימודים בערב")
+    _upd("רייכמן חוה", leave=True, leave_when="בעוד חודש בערך, לשבוע")
+    mine = sorted({c for (c, s_), a in ASSIGNMENT.items() if "שפירא סימה" in a["teachers"]})
+    if mine:
+        _upd("שפירא סימה", blocked_class=mine[0], reason="קרבה משפחתית לתלמידה")
+    return out
+
+
+FORMS.update(_make_forms())

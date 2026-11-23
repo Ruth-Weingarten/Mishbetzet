@@ -87,7 +87,7 @@ function Review({ items, busy, onApprove }: { items: Proposal[]; busy: boolean; 
           </li>
         ))}
       </ul>
-      {busy && <Thinking text="פותר האילוצים בונה את המערכת. זה לוקח כמה שניות..." />}
+      {busy && <Thinking text="פותר האילוצים בונה את המערכת. בבית ספר בגודל הזה זה יכול לקחת עד כמה דקות, אפשר להמשיך לחכות..." />}
     </div>
   )
 }

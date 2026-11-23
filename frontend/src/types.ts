@@ -33,7 +33,7 @@ export interface AssignmentCell {
   pullout?: boolean          // שיעור סיוע במקביל לשיעור אחר
 }
 
-export interface Rule { id: string; kind: string; params: Record<string, unknown>; text: string }
+export interface Rule { id: string; kind: string; params: Record<string, unknown>; text: string; enabled?: boolean }
 
 export interface School {
   days: string[]

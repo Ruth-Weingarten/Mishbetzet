@@ -15,6 +15,8 @@ async function call<T>(url: string, body?: unknown, method = 'POST'): Promise<T>
 
 export const api = {
   school: () => call<School>('/api/school'),
+  patchRule: (id: string, body: { enabled?: boolean; text?: string; params?: Record<string, number> }) =>
+    call<unknown>(`/api/rules/${encodeURIComponent(id)}`, body, 'PUT'),
   startRun: () => call<Run>('/api/runs', {}),
   resume: (id: string, value: unknown) => call<Run>(`/api/runs/${id}/resume`, { value }),
   teacherTranslate: (teacher: string, text: string) =>

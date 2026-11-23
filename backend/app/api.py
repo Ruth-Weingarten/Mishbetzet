@@ -88,6 +88,31 @@ def get_run(run_id: str):
     return snapshot(run_id)
 
 
+# ---------- כללי בית הספר: ביטול ועריכה ----------
+
+class RulePatch(BaseModel):
+    enabled: bool | None = None
+    text: str | None = None
+    params: dict[str, int] | None = None
+
+
+@app.put("/api/rules/{rule_id}")
+def patch_rule(rule_id: str, body: RulePatch):
+    """ביטול כלל (או הפעלה מחדש), ועריכת הניסוח והמספרים שלו. חל מהבנייה הבאה."""
+    rule = next((r for r in D.SCHOOL_RULES if r["id"] == rule_id), None)
+    if rule is None:
+        raise HTTPException(404, "הכלל לא נמצא")
+    if body.enabled is not None:
+        rule["enabled"] = body.enabled
+    if body.text is not None and body.text.strip():
+        rule["text"] = body.text.strip()
+    for key, value in (body.params or {}).items():
+        current = rule["params"].get(key)
+        if isinstance(current, int) and not isinstance(current, bool):   # רק מספרים קיימים
+            rule["params"][key] = value
+    return rule
+
+
 # ---------- טופס המורה: גרף קטן עם אישור של המורה ----------
 
 class TeacherText(BaseModel):

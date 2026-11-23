@@ -71,7 +71,7 @@ def say(text, **extra):
 # =====================================================================
 
 def load_data(state: TimetableState):
-    constraints = [dict(r, source="rule") for r in D.SCHOOL_RULES]
+    constraints = [dict(r, source="rule") for r in D.SCHOOL_RULES if r.get("enabled", True)]
     unconfirmed = []
     for t, f in D.FORMS.items():
         if f.get("free_day"):

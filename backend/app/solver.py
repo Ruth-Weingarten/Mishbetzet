@@ -22,6 +22,7 @@ from . import data as D
 
 DEFAULT_WEIGHTS = {
     "avoid_prev_homeroom": 2,
+    "teacher_max_wait": 30,   # המתנה ארוכה של מורה: קנס כבד, אבל לא חובה (חובה מקשה מאוד על הפותר)
 }
 WEIGHT = 10
 GAP_WEIGHT = 6   # קנס לכל חלון של מורה, בנוסף לכללים
@@ -31,8 +32,9 @@ def _period_label(d, p):
     return f"{D.DAYS[d]} שעה {p + 1}"
 
 
-def solve(constraints, pins=None, time_limit=8.0, previous=None):
-    """previous: השיעורים מהפתרון הקודם. הפותר משתדל לא להזיז אותם (יציבות)."""
+def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
+    """previous: השיעורים מהפתרון הקודם. הפותר משתדל לא להזיז אותם (יציבות).
+    hint: פתרון התחלתי בלבד (בלי קנס יציבות): עוזר לפותר למצוא פתרון ראשון מהר."""
     pins = pins or []
     m = cp_model.CpModel()
     slots = [(d, p) for d in range(6) for p in range(D.PERIODS_PER_DAY[d])]
@@ -193,15 +195,30 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
                 m.Add(sum(works) <= 6 - prm.get("min_free_days", 1))
 
         elif k == "teacher_max_wait":
-            # חובה: מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום
+            # מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום (קנס כבד)
             mx = prm.get("max_wait", 1)
             for t in D.TEACHERS:
                 for d in range(6):
                     P = D.PERIODS_PER_DAY[d]
-                    for q in range(P):
-                        for r in range(q + mx + 2, P):
-                            m.AddBoolOr([busy[t, d, q].Not(), busy[t, d, r].Not()]
-                                        + [busy[t, d, x] for x in range(q + 1, r)])
+                    # pre[p]: יש שיעור באחת השעות 0..p.  suf[p]: יש שיעור באחת השעות p..P-1
+                    pre = [busy[t, d, 0]]
+                    for p in range(1, P):
+                        v = m.NewBoolVar("")
+                        m.AddMaxEquality(v, [pre[p - 1], busy[t, d, p]])
+                        pre.append(v)
+                    suf = [None] * P
+                    suf[P - 1] = busy[t, d, P - 1]
+                    for p in range(P - 2, -1, -1):
+                        v = m.NewBoolVar("")
+                        m.AddMaxEquality(v, [suf[p + 1], busy[t, d, p]])
+                        suf[p] = v
+                    # חלון של mx+1 שעות פנויות ברצף, עם שיעור לפניו ושיעור אחריו: אסור
+                    for a in range(1, P - mx - 1):
+                        b = a + mx
+                        v = m.NewBoolVar("")
+                        m.AddBoolOr([busy[t, d, x] for x in range(a, b + 1)]
+                                    + [pre[a - 1].Not(), suf[b + 1].Not(), v])
+                        soft(cons, f"{t}|{d}|{a}", f"{t} · {D.DAYS[d]} · המתנה ארוכה", v)
 
         elif k == "first_period_kodesh":
             for c in D.CLASSES:
@@ -366,6 +383,10 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
     # יציבות: כל שיעור שזז ממקומו בפתרון הקודם עולה נקודה אחת.
     # כך החלטה קטנה של המנהלת לא "מערבבת" את כל המערכת.
     stability = []
+    for l in hint or []:
+        var = y.get((l["cls"], l["subject"], l["day"], l["period"]))
+        if var is not None:
+            m.AddHint(var, 1)
     for l in previous or []:
         var = y.get((l["cls"], l["subject"], l["day"], l["period"]))
         if var is not None:
@@ -376,7 +397,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit
-    solver.parameters.num_workers = min(16, os.cpu_count() or 8)
+    solver.parameters.num_workers = max(8, min(16, os.cpu_count() or 8))
     status = solver.Solve(m)
 
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):

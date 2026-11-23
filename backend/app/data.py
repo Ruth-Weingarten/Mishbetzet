@@ -201,7 +201,7 @@ SCHOOL_RULES = [
      "text": "מורה עם יותר מ-20 שעות: עד 5 ימי עבודה. עד 20 שעות: עד 4 ימים"},
     {"id": "R18", "kind": "class_daily_load", "params": {"tolerance": 1, "friday_full": True, "min_lessons": 5}, "hard": True,
      "text": "יום לימודים סביר: לכל כיתה לפחות 5 שיעורים בכל יום מראשון עד חמישי, קרוב לממוצע, ושישי מלא (4 שעות)"},
-    {"id": "R19", "kind": "teacher_max_wait", "params": {"max_wait": 1}, "hard": True,
+    {"id": "R19", "kind": "teacher_max_wait", "params": {"max_wait": 1},
      "text": "מורה לא ממתינה יותר משעה אחת בין שני שיעורים באותו יום"},
     {"id": "R2", "kind": "spread", "params": {"subject": "אנגלית"},
      "text": "אנגלית: לא יותר משיעור אחד ביום בכיתה"},

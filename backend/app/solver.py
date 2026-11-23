@@ -24,6 +24,7 @@ DEFAULT_WEIGHTS = {
     "avoid_prev_homeroom": 2,
 }
 WEIGHT = 10
+GAP_WEIGHT = 2   # קנס לכל חלון של מורה, בנוסף לכללים
 
 
 def _period_label(d, p):
@@ -176,6 +177,10 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
                     day_total = sum(occ[c, d, p] for p in range(D.PERIODS_PER_DAY[d]))
                     m.Add(day_total >= lo)
                     m.Add(day_total <= hi)
+                if prm.get("friday_full"):
+                    # שישי: כל ארבע השעות, כמו במערכת של בית הספר
+                    for p in range(D.PERIODS_PER_DAY[5]):
+                        m.Add(occ[c, 5, p] == 1)
 
         elif k == "teacher_max_wait":
             # חובה: מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום
@@ -321,6 +326,13 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
             soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
     # מובנה: עדיף שמורה לא תקבל מהמאגר כיתה שחינכה בשנה שעברה
+    # --- מינימום חלונות כללי: כל חלון של מורה (בכל יום) עולה קנס קטן.
+    # המערכת האמיתית הגיעה בממוצע לפחות מחלון אחד בשבוע למורה, ומורות התלוננו גם על זה.
+    for t in D.TEACHERS:
+        for d in range(6):
+            for g in day_gaps(t, d):
+                penalties.append((g, GAP_WEIGHT))
+
     prev_cons = {"id": "POOL", "kind": "avoid_prev_homeroom",
                  "text": "במאגר: עדיף לא לכיתה שהמורה חינכה בשנה שעברה"}
     for (c, s, t), var in choice.items():

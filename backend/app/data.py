@@ -1,0 +1,297 @@
+"""
+נתוני בית הספר: מבוססים על בית ספר בית יעקב אמיתי (49 כיתות, כ-90 מורות), לפי מערכת תשפ"ז.
+המבנה, המקצועות, השעות וחלוקת העבודה אמיתיים. כל שמות המורות בדויים.
+
+בהמשך הנתונים האלה יעברו למסד נתונים.
+"""
+
+import json
+import re
+from pathlib import Path
+
+DAYS = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"]
+
+# מספר המשבצות בכל יום (ראשון עד שישי). יום שישי קצר.
+# לא כל כיתה ממלאת את כל המשבצות: כיתה א' לומדת 29 שעות, כיתה ח' 37.
+PERIODS_PER_DAY = [7, 7, 7, 7, 7, 4]
+
+# שעות השיעורים: (התחלה, סיום)
+PERIOD_TIMES = [
+    ("08:00", "08:45"),
+    ("08:45", "09:30"),
+    ("09:45", "10:30"),
+    ("10:30", "11:15"),
+    ("11:30", "12:15"),
+    ("12:15", "13:00"),
+    ("13:00", "13:45"),
+]
+
+# ---------------------------------------------------------------------
+# הנתונים של בית הספר: מתוך דוח הפעילויות של מערכת תשפ"ז
+# (מי מלמדת מה, באיזו כיתה, כמה שעות). נוצר מהקובץ school.json.
+# ---------------------------------------------------------------------
+_RAW = json.loads((Path(__file__).parent / "school.json").read_text(encoding="utf-8"))
+
+GRADES = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'"]
+CLASSES = _RAW["classes"]          # 49 כיתות
+HOMEROOM = _RAW["homeroom"]        # המחנכת של כל כיתה
+
+
+def grade_of(cls: str) -> str:
+    return cls[:2]
+
+
+# קבוצות מקצועות (משמשות לצבעים ולכללים כמו "קודש בשעה ראשונה")
+_GROUPS = {
+    "kodesh": ["תורה", "תורה/פרשה", "נביא", "דינים", "דינים ויהדות", "יהדות", "יהדות חברה",
+               "פ. שבוע", "ב. תפילה", "פ. אבות"],
+    "lang": ["עברית", "כתיב", "דקדוק", "ספרות", "הבנת הנקרא", "חיבור", "הבנת הנקרא + חיבור",
+             "חיבור והבנה", "אנגלית", "תגבור קריאה", "סיוע בקריאה", "נושא"],
+    "math": ["חשבון", "הנדסה", "חשבון והנדסה"],
+    "science": ["טבע", "מולדת", "גאוגרפיה", "הסטוריה"],
+}
+
+
+def _group(subject: str) -> str:
+    base = subject.split(" (")[0]
+    for g, names in _GROUPS.items():
+        if base in names:
+            return g
+    return "other"
+
+
+VICE = ["פריד נחמה", "בלוך מלכה", "קלוגר הודיה"]   # הסגניות
+
+_HE2EN = dict(zip("אבגדהוזחטיכלמנסעפצקרשתךםןףץ",
+                  ["a", "b", "g", "d", "h", "v", "z", "ch", "t", "y", "k", "l", "m", "n", "s", "", "p",
+                   "tz", "k", "r", "sh", "t", "ch", "m", "n", "f", "tz"]))
+
+
+def _email(name: str) -> str:
+    """כתובת דוא"ל לדוגמה באותיות לטיניות: "פרנק נעמי" -> n.prnk@demo"""
+    def tr(w):
+        return "".join(_HE2EN.get(ch, "") for ch in w)
+    parts = name.split()
+    if len(parts) == 1:
+        return f"{tr(parts[0])}@demo"
+    return f"{tr(parts[-1])[:1]}.{tr(parts[0])}@demo"
+
+
+# המורות. role: "vice" = סגנית מנהלת.
+TEACHERS = {t: {"role": "vice" if t in VICE else None, "email": _email(t)} for t in _RAW["teachers"]}
+
+# מי חינכה איזו כיתה בשנה שעברה (לכלל "לפתוח דף חדש" במאגר). אין נתונים כרגע.
+PREV_HOMEROOM = {}
+
+
+def _build():
+    """
+    טבלת השיבוץ: לכל (כיתה, מקצוע) מי מלמדת וכמה שעות.
+    kind:     fixed = מורה אחת, parallel = כמה מורות באותה שעה (חצאי כיתה)
+    block:    הקבצה: כמה כיתות לומדות את המקצוע באותה שעה, עם כמה מורות
+    pullout:  שיעור סיוע: חלק מהתלמידות יוצאות, בזמן שהכיתה לומדת שיעור אחר
+    rooms:    כמה חדרים מיוחדים השיעור תופס (מחשבים בחצאי כיתה: 2)
+    """
+    curriculum = {c: {} for c in CLASSES}
+    assignment, blocks = {}, {}
+    for i, it in enumerate(_RAW["items"]):
+        s = it["subject"]
+        block = None
+        if len(it["classes"]) > 1:
+            block = f"B{i}"
+            blocks[block] = {"subject": s, "classes": it["classes"], "teachers": it["teachers"],
+                             "hours": it["hours"]}
+        for c in it["classes"]:
+            curriculum[c][s] = it["hours"]
+            assignment[(c, s)] = {
+                "kind": "parallel" if len(it["teachers"]) > 1 else "fixed",
+                "teachers": it["teachers"],
+                "homeroom": it["teachers"] == [HOMEROOM[c]],
+                "block": block,
+                "pullout": it.get("pullout", False),
+                "rooms": it.get("rooms", 1),
+            }
+    return curriculum, assignment, blocks
+
+
+CLASS_CURRICULUM, ASSIGNMENT, BLOCKS = _build()
+
+# כל המקצועות בבית הספר, עם קבוצה. CURRICULUM: מקצוע -> מספר השעות הגבוה ביותר בכיתה כלשהי.
+SUBJECTS = {s: _group(s) for cur in CLASS_CURRICULUM.values() for s in cur}
+CURRICULUM = {}
+for _cur in CLASS_CURRICULUM.values():
+    for _s, _h in _cur.items():
+        CURRICULUM[_s] = max(CURRICULUM.get(_s, 0), _h)
+
+# חדרים מיוחדים, וכמה שיעורים יכולים להתקיים בהם באותה שעה
+ROOM_CAPACITY = {"אולם": 2, "חדר מחשבים": 2}
+ROOMS = {s: "אולם" for s in SUBJECTS if s == "התעמלות"}
+ROOMS.update({s: "חדר מחשבים" for s in SUBJECTS if "מחשבים" in s})
+
+HOMEROOM_SUBJECTS = sorted({s for (c, s), a in ASSIGNMENT.items() if a["homeroom"]})
+
+
+# טפסי המורות. מבוסס על הטופס האמיתי של בית הספר.
+# בהדגמה הם נשמרים בזיכרון: מורה שממלאת טופס באתר מעדכנת את המילון הזה.
+def _form(free_day=None, alt_day=None, subjects=(), blocked_class=None, reason="",
+          leave=False, leave_when="", reduce_hours=0, free_text="", confirmed_rule=None, submitted=True):
+    return {"free_day": free_day, "alt_day": alt_day, "subjects": list(subjects),
+            "blocked_class": blocked_class, "reason": reason,
+            "leave": leave, "leave_when": leave_when, "reduce_hours": reduce_hours,
+            "free_text": free_text, "confirmed_rule": confirmed_rule, "submitted": submitted}
+
+
+def _subjects_of(t):
+    return sorted({s for (c, s), a in ASSIGNMENT.items() if t in a["teachers"]})
+
+
+FORMS = {
+    "נוסבוים פייגי":       _form("שלישי", None, _subjects_of("נוסבוים פייגי")),
+    "קלוגר רחל":     _form("שלישי", None, _subjects_of("קלוגר רחל")),
+    "כץנלבוגן טובה":       _form("חמישי", None, _subjects_of("כץנלבוגן טובה")),
+    "שטרנברג בילא":        _form("רביעי", None, _subjects_of("שטרנברג בילא")),
+    "מאירוביץ טובה":     _form("רביעי", None, _subjects_of("מאירוביץ טובה")),
+    "פולק שרה":       _form("ראשון", None, _subjects_of("פולק שרה"),
+                             free_text="אם אפשר, לצמצם את השעות שלי ליומיים"),
+    "קלוגר הודיה":      _form(None, None, _subjects_of("קלוגר הודיה"), free_text="ביום חמישי עד 12",
+                             confirmed_rule={"matched": True, "kind": "teacher_end_by",
+                                             "params": {"teacher": "קלוגר הודיה", "day": 4, "last_period": 3},
+                                             "summary": "קלוגר הודיה: ביום חמישי לסיים עד 11:15"}),
+    "בירנבוים תמר": _form(None, None, _subjects_of("בירנבוים תמר"),
+                              free_text="ביום שני אני מתחילה רק מ-11:15",
+                              confirmed_rule={"matched": True, "kind": "teacher_start_from",
+                                              "params": {"teacher": "בירנבוים תמר", "day": 1, "first_period": 4},
+                                              "summary": "בירנבוים תמר: ביום שני להתחיל מ-11:30"}),
+    "כהנוביץ אסנת":       _form(None, None, _subjects_of("כהנוביץ אסנת"), free_text="ביום ראשון עד 10:00",
+                             confirmed_rule={"matched": True, "kind": "teacher_end_by",
+                                             "params": {"teacher": "כהנוביץ אסנת", "day": 0, "last_period": 1},
+                                             "summary": "כהנוביץ אסנת: ביום ראשון לסיים עד 09:30"}),
+}
+
+
+def blocked():
+    """כיתות שמורה סימנה בטופס שאינה יכולה ללמד."""
+    return {t: [f["blocked_class"]] for t, f in FORMS.items() if f.get("blocked_class")}
+
+
+# כללי בית הספר שהמנהלת סימנה מהרשימה (נשמרו מהשנה הקודמת)
+SCHOOL_RULES = [
+    {"id": "R1", "kind": "first_period_kodesh", "params": {},
+     "text": "מקצוע קודש בשעה הראשונה בכל יום"},
+    {"id": "R5", "kind": "subject_days", "params": {"subject": "פ. שבוע", "days": [2, 3, 4, 5]},
+     "text": "פרשת שבוע מיום שלישי והלאה"},
+    {"id": "R6", "kind": "no_double", "params": {"subject": "חשבון", "grades": GRADES[:5]},
+     "text": "כיתות א'-ה' בלי שיעורי חשבון כפולים"},
+    {"id": "R8", "kind": "teacher_gaps", "params": {"max_per_day": 1},
+     "text": "לא יותר מחלון אחד ביום לכל מורה"},
+    {"id": "R10", "kind": "min_lessons_per_day", "params": {"min": 2},
+     "text": "מורה לא מגיעה ליום עם פחות משני שיעורים"},
+    {"id": "R11", "kind": "max_gaps_per_week", "params": {"max": 2},
+     "text": "לא יותר משני חלונות בשבוע לכל מורה"},
+    {"id": "R12", "kind": "teacher_gaps", "params": {"max_per_day": 0, "days": [5]},
+     "text": "אין חלונות ביום שישי"},
+    {"id": "R13", "kind": "short_day_early", "params": {"max_lessons": 2, "last_period": 2},
+     "text": "מורה שמגיעה לשני שיעורים בלבד: צמודים, ומסיימת עד 10:30"},
+    {"id": "R14", "kind": "max_work_days", "params": {"threshold": 20, "above": 5, "below": 4},
+     "text": "מורה עם יותר מ-20 שעות: עד 5 ימי עבודה. עד 20 שעות: עד 4 ימים"},
+]
+
+# הערות חופשיות של המנהלת (יתורגמו לכללים)
+PRINCIPAL_NOTES = [
+    {"id": "N1", "text": "סגניות: פריד, בלוך ובעיקר ה. קלוגר - לא לשבץ שעה ראשונה."},
+    {"id": "N2", "text": "צירל נויפלד - ללא בקרים, ככל שניתן בארבעה ימים."},
+    {"id": "N3", "text": "ברכה כגן - ללא בקרים."},
+    {"id": "N4", "text": "צמח - לא יותר מ-5 שעות ביום בגלל התעמלות."},
+    {"id": "N5", "text": "בארי - ככל שאפשר שתתחיל רק ב-8:00."},
+    {"id": "N6", "text": "נעמי פרנק - ראשון ורביעי לסיים ב-11:00."},
+    {"id": "N7", "text": "רבינוביץ - 4 ימים, שעות יותר מוקדמות."},
+    {"id": "N8", "text": "אם החלפה של שעה בשנתון אחר יכולה להועיל - אפשרי בהתייעצות."},
+]
+
+
+def find_teachers(text: str) -> list:
+    """
+    מוצא שמות מורות בטקסט, רק כמילים שלמות.
+    השמות שמורים כ"משפחה פרטי" (פרנק נעמי), אבל בטקסט כותבים גם "נעמי פרנק", "פרנק" או "ה. קלוגר".
+    מותרות אותיות שימוש בתחילת המילה (ו, ב, ל, ה, מ, ש, כ).
+    כשיש שתי מורות עם אותו שם משפחה, צריך גם את השם הפרטי (או האות הראשונה שלו).
+    """
+    def has(word):
+        return re.search(rf"(?<![א-ת])[ובלהמשכ]{{0,2}}{re.escape(word)}(?![א-ת])", text)
+
+    found = []
+    for t in TEACHERS:
+        parts = t.split()
+        last, first = parts[0], " ".join(parts[1:])
+        if last == "בן" and len(parts) > 2:           # שם משפחה כפול, כמו "בן דוד"
+            last, first = " ".join(parts[:2]), " ".join(parts[2:])
+        if not has(last):
+            continue
+        same_last = [x for x in TEACHERS if x.startswith(last + " ") or x == last]
+        if len(same_last) == 1 or not first:
+            found.append(t)
+        elif has(first) or re.search(rf"(?<![א-ת]){re.escape(first[0])}\.\s*{re.escape(last)}", text):
+            found.append(t)
+    return found
+
+
+def class_hours(c: str) -> int:
+    """שעות שבועיות של כיתה (בלי שיעורי סיוע, שמתקיימים במקביל לשיעור אחר)."""
+    return sum(h for s, h in CLASS_CURRICULUM[c].items() if not ASSIGNMENT[(c, s)]["pullout"])
+
+
+def teacher_hours():
+    """סך השעות השבועיות של כל מורה. בהקבצה המורה מלמדת פעם אחת, לא בכל כיתה."""
+    hours = {t: 0 for t in TEACHERS}
+    for (c, s), info in ASSIGNMENT.items():
+        if info["block"] and BLOCKS[info["block"]]["classes"][0] != c:
+            continue
+        h = CLASS_CURRICULUM[c][s]
+        for t in info["teachers"]:
+            hours[t] += h / len(info["teachers"]) if info["kind"] == "pool" else h
+    return {t: round(v) for t, v in hours.items()}
+
+
+def data_problems():
+    """
+    בדיקות פשוטות של הנתונים, לפני שבונים: דברים שבגללם אי אפשר לבנות מערכת בכלל.
+    מחזירה רשימת משפטים בשפה של המנהלת (ריקה = הכול תקין).
+    """
+    problems = []
+    week = sum(PERIODS_PER_DAY)
+    for c in CLASSES:
+        need = class_hours(c)
+        if need > week:
+            problems.append(f"לכיתה {c} יש {need} שעות, ובשבוע יש רק {week} משבצות. צריך לתקן את המכוון.")
+    for t, h in teacher_hours().items():
+        if h > week:
+            problems.append(f"לגב' {t} שובצו {h} שעות, ויש בשבוע רק {week} משבצות. "
+                            "צריך להעביר חלק מהשעות שלה למורה אחרת, בלשונית \"שיבוץ\".")
+    return problems
+
+
+def school_snapshot():
+    """כל נתוני בית הספר, בפורמט שהממשק יכול להציג."""
+    hours = teacher_hours()
+    return {
+        "days": DAYS,
+        "periodsPerDay": PERIODS_PER_DAY,
+        "periodTimes": PERIOD_TIMES,
+        "subjects": SUBJECTS,
+        "curriculum": CURRICULUM,
+        "classCurriculum": CLASS_CURRICULUM,
+        "classes": CLASSES,
+        "grades": GRADES,
+        "homeroom": HOMEROOM,
+        "teachers": [
+            {"name": t, "role": v["role"], "email": v["email"], "hours": hours[t],
+             "form": FORMS.get(t), "blocked": blocked().get(t, [])}
+            for t, v in TEACHERS.items()
+        ],
+        "assignment": [
+            {"cls": c, "subject": s, **info} for (c, s), info in ASSIGNMENT.items()
+        ],
+        "rules": SCHOOL_RULES,
+        "notes": PRINCIPAL_NOTES,
+        "problems": data_problems(),
+    }

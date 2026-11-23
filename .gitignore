@@ -1,0 +1,11 @@
+# סודות: לא מעלים ל-GitHub
+.env
+backend/.env
+
+# קבצים שנוצרים אוטומטית
+.venv/
+backend/.venv/
+__pycache__/
+node_modules/
+frontend/node_modules/
+*.tsbuildinfo

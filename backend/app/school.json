@@ -1,0 +1,9782 @@
+{
+ "classes": [
+  "א'1",
+  "א'2",
+  "א'3",
+  "א'4",
+  "א'5",
+  "א'6",
+  "ב'1",
+  "ב'2",
+  "ב'3",
+  "ב'4",
+  "ב'5",
+  "ב'6",
+  "ב'7",
+  "ג'1",
+  "ג'2",
+  "ג'3",
+  "ג'4",
+  "ג'5",
+  "ג'6",
+  "ד'1",
+  "ד'2",
+  "ד'3",
+  "ד'4",
+  "ד'5",
+  "ד'6",
+  "ה'1",
+  "ה'2",
+  "ה'3",
+  "ה'4",
+  "ה'5",
+  "ה'6",
+  "ו'1",
+  "ו'2",
+  "ו'3",
+  "ו'4",
+  "ו'5",
+  "ו'6",
+  "ז'1",
+  "ז'2",
+  "ז'3",
+  "ז'4",
+  "ז'5",
+  "ז'6",
+  "ח'1",
+  "ח'2",
+  "ח'3",
+  "ח'4",
+  "ח'5",
+  "ח'6"
+ ],
+ "teachers": [
+  "אבירם גולדה",
+  "אדר בילא",
+  "אורנשטיין רחל",
+  "אייזנברג דבורה",
+  "אלטמן עדינה",
+  "ארליך חנה",
+  "בארי פנינה",
+  "בוקסבוים מינדי",
+  "בירנבוים תמר",
+  "בלוך מלכה",
+  "ברגמן הודיה",
+  "ברנדס תמר",
+  "גוטליב שיינדי",
+  "גולדפרב אלישבע",
+  "גולדשמידט יהודית",
+  "גוראריה קילא",
+  "גינזבורג גיטי",
+  "גינזבורג הודיה",
+  "דויטש גאולה",
+  "דרוק תהילה",
+  "הורוביץ צפורה",
+  "הייזלר קילא",
+  "הכט זהבה",
+  "הלר מרים",
+  "ווגל גאולה",
+  "וולפסון כנרת",
+  "וורמסר מרים",
+  "וינברג רחל",
+  "וקסלר יוכבד",
+  "זוסמן רחל",
+  "זילברמן עדינה",
+  "זינגר שיינדי",
+  "חזן דבורה",
+  "טאובר דינה",
+  "טורק טובה",
+  "טורק שרה",
+  "טייטלבוים בילא",
+  "טננבוים זהבה",
+  "יפה חנה",
+  "ירושלמי שולמית",
+  "כגן ברכה",
+  "כהנוביץ אסנת",
+  "כץנלבוגן טובה",
+  "לבקוביץ רייזי",
+  "לויט מרים",
+  "ליבוביץ מרים",
+  "לנדסמן רייזי",
+  "מאירוביץ טובה",
+  "מילר תמר",
+  "מנדלוביץ בתיה",
+  "מנס קילא",
+  "מרגליות רייזי",
+  "משרה פנויה",
+  "נויפלד צירל",
+  "נוסבוים פייגי",
+  "נחמיאס גאולה",
+  "סגלוביץ רחל",
+  "סולוביצ'יק אורה",
+  "סופר מרים",
+  "עזריאל חוה",
+  "עמרם הניה",
+  "פוגל סימה",
+  "פולק לאה",
+  "פולק שרה",
+  "פינקלשטיין זהבה",
+  "פלדמן ברכה",
+  "פריד נחמה",
+  "פרידלנדר בילא",
+  "פרנק נעמי",
+  "צוקרמן חנה",
+  "צייטלין טליה",
+  "צמח חוה",
+  "קאופמן אורה",
+  "קלוגר הודיה",
+  "קלוגר רחל",
+  "קליין ליבי",
+  "קנובלוך רבקה",
+  "רבינוביץ מרים",
+  "רוזנטל מרים",
+  "רוטנברג הודיה",
+  "רייכמן חוה",
+  "שוורץ פערל",
+  "שטרנברג בילא",
+  "שינפלד חוה",
+  "שלזינגר חיה",
+  "שמואלי ויטה",
+  "שפירא סימה",
+  "תאומים רייזי",
+  "תנעמי רחל"
+ ],
+ "homeroom": {
+  "א'1": "זילברמן עדינה",
+  "א'2": "טייטלבוים בילא",
+  "א'3": "נחמיאס גאולה",
+  "א'4": "פוגל סימה",
+  "א'5": "קלוגר רחל",
+  "א'6": "שפירא סימה",
+  "ב'1": "כהנוביץ אסנת",
+  "ב'2": "דרוק תהילה",
+  "ב'3": "הכט זהבה",
+  "ב'4": "בארי פנינה",
+  "ב'5": "צייטלין טליה",
+  "ב'6": "עמרם הניה",
+  "ב'7": "טננבוים זהבה",
+  "ג'1": "ברנדס תמר",
+  "ג'2": "סופר מרים",
+  "ג'3": "וולפסון כנרת",
+  "ג'4": "ליבוביץ מרים",
+  "ג'5": "יפה חנה",
+  "ג'6": "בירנבוים תמר",
+  "ד'1": "שינפלד חוה",
+  "ד'2": "אורנשטיין רחל",
+  "ד'3": "כץנלבוגן טובה",
+  "ד'4": "סולוביצ'יק אורה",
+  "ד'5": "תאומים רייזי",
+  "ד'6": "וורמסר מרים",
+  "ה'1": "לנדסמן רייזי",
+  "ה'2": "ברגמן הודיה",
+  "ה'3": "וקסלר יוכבד",
+  "ה'4": "לויט מרים",
+  "ה'5": "גוטליב שיינדי",
+  "ה'6": "בוקסבוים מינדי",
+  "ו'1": "ווגל גאולה",
+  "ו'2": "רוטנברג הודיה",
+  "ו'3": "ירושלמי שולמית",
+  "ו'4": "פרידלנדר בילא",
+  "ו'5": "טאובר דינה",
+  "ו'6": "הלר מרים",
+  "ז'1": "מנס קילא",
+  "ז'2": "מרגליות רייזי",
+  "ז'3": "עזריאל חוה",
+  "ז'4": "לבקוביץ רייזי",
+  "ז'5": "חזן דבורה",
+  "ז'6": "הורוביץ צפורה",
+  "ח'1": "טורק טובה",
+  "ח'2": "פרנק נעמי",
+  "ח'3": "שטרנברג בילא",
+  "ח'4": "מנדלוביץ בתיה",
+  "ח'5": "מאירוביץ טובה",
+  "ח'6": "רוזנטל מרים"
+ },
+ "items": [
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "גוראריה קילא",
+    "ארליך חנה",
+    "רוטנברג הודיה",
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ו'2",
+    "ו'4",
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "גוראריה קילא",
+    "ארליך חנה",
+    "רוטנברג הודיה",
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ו'2",
+    "ו'4",
+    "ו'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "גוראריה קילא",
+    "פולק לאה",
+    "ארליך חנה",
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ו'1",
+    "ו'3",
+    "ו'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "גוראריה קילא",
+    "בוקסבוים מינדי",
+    "ארליך חנה",
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ו'1",
+    "ו'3",
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "גוראריה קילא",
+    "פולק לאה",
+    "טורק טובה",
+    "מרגליות רייזי",
+    "ארליך חנה",
+    "מנס קילא",
+    "שמואלי ויטה",
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ח'1",
+    "ח'2",
+    "ח'3",
+    "ח'4",
+    "ח'5",
+    "ח'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "זינגר שיינדי",
+    "כגן ברכה",
+    "מילר תמר",
+    "זוסמן רחל"
+   ],
+   "classes": [
+    "ח'1",
+    "ח'2",
+    "ח'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "זינגר שיינדי",
+    "גולדפרב אלישבע",
+    "גינזבורג הודיה",
+    "זוסמן רחל"
+   ],
+   "classes": [
+    "ח'3",
+    "ח'4",
+    "ח'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "זינגר שיינדי",
+    "כגן ברכה",
+    "חזן דבורה",
+    "מילר תמר",
+    "גולדפרב אלישבע",
+    "גינזבורג הודיה",
+    "זוסמן רחל",
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ז'1",
+    "ז'2",
+    "ז'3",
+    "ז'4",
+    "ז'5",
+    "ז'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "פולק לאה",
+    "ווגל גאולה",
+    "מנדלוביץ בתיה",
+    "בוקסבוים מינדי",
+    "ארליך חנה",
+    "שמואלי ויטה",
+    "צוקרמן חנה",
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ז'1",
+    "ז'2",
+    "ז'3",
+    "ז'4",
+    "ז'5",
+    "ז'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "זינגר שיינדי",
+    "מילר תמר",
+    "זוסמן רחל",
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ו'2",
+    "ו'4",
+    "ו'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "זינגר שיינדי",
+    "מילר תמר",
+    "זוסמן רחל",
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ו'1",
+    "ו'3",
+    "ו'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "פרנק נעמי"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'6"
+   ],
+   "teachers": [
+    "גוראריה קילא",
+    "ירושלמי שולמית"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'4"
+   ],
+   "teachers": [
+    "גוראריה קילא",
+    "רוטנברג הודיה"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'3"
+   ],
+   "teachers": [
+    "גוראריה קילא",
+    "רוטנברג הודיה"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "גוראריה קילא"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'5"
+   ],
+   "teachers": [
+    "גוטליב שיינדי",
+    "בוקסבוים מינדי"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'4"
+   ],
+   "teachers": [
+    "גוטליב שיינדי",
+    "נוסבוים פייגי"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'3"
+   ],
+   "teachers": [
+    "גוטליב שיינדי",
+    "נוסבוים פייגי"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'2"
+   ],
+   "teachers": [
+    "גוטליב שיינדי",
+    "סגלוביץ רחל"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "גוטליב שיינדי"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "סולוביצ'יק אורה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תגבור קריאה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "טננבוים זהבה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "וינברג רחל"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "כץנלבוגן טובה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פריד נחמה"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "תאומים רייזי"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "גולדשמידט יהודית"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "לבקוביץ רייזי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בלוך מלכה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "שפירא סימה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "פרידלנדר בילא"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "וורמסר מרים"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "כגן ברכה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "כגן ברכה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "כגן ברכה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כשורי חברה",
+   "teachers": [
+    "פולק שרה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "פולק שרה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כשורי חברה",
+   "teachers": [
+    "פולק שרה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "פולק לאה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "פולק לאה"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "פולק לאה"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "פולק לאה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "חזן דבורה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "נחמיאס גאולה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'1"
+   ],
+   "teachers": [
+    "ווגל גאולה",
+    "רוטנברג הודיה"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "ווגל גאולה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רבינוביץ מרים"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "ברנדס תמר"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "כתיב",
+   "teachers": [
+    "קלוגר הודיה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "קלוגר רחל"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "מאירוביץ טובה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "מנדלוביץ בתיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "שלזינגר חיה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "וקסלר יוכבד"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "טורק טובה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "טורק שרה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "טורק שרה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "טורק שרה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 6,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "טורק שרה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 6,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "צמח חוה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שוורץ פערל"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "אדר בילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "הלר מרים"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "מילר תמר"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "מרגליות רייזי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "בוקסבוים מינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'6"
+   ],
+   "teachers": [
+    "בוקסבוים מינדי",
+    "נוסבוים פייגי"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "בוקסבוים מינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "בוקסבוים מינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "בוקסבוים מינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "בוקסבוים מינדי"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "פוגל סימה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "ברגמן הודיה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גולדפרב אלישבע"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "קליין ליבי"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": "ורד",
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "קליין ליבי"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 5,
+   "room": "ורד",
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "קליין ליבי"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 6,
+   "room": "ורד",
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "קליין ליבי"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 6,
+   "room": "ורד",
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "קליין ליבי"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 6,
+   "room": "ורד",
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "טייטלבוים בילא"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "טייטלבוים בילא"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "טייטלבוים בילא"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "טייטלבוים בילא"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 6,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "טייטלבוים בילא"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גינזבורג הודיה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גינזבורג הודיה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "גינזבורג הודיה"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "גינזבורג גיטי"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "גינזבורג גיטי"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "גינזבורג גיטי"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "רוטנברג הודיה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'5"
+   ],
+   "teachers": [
+    "רוטנברג הודיה",
+    "ירושלמי שולמית"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ו'2"
+   ],
+   "teachers": [
+    "רוטנברג הודיה",
+    "סגלוביץ רחל"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "רוטנברג הודיה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "רוטנברג הודיה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "רוטנברג הודיה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "מנס קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "מנס קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "מנס קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "מנס קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "מנס קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": "אולם א'",
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "עזריאל חוה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "דרוק תהילה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "וולפסון כנרת"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית (2)",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "פלדמן ברכה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "שמואלי ויטה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "שמואלי ויטה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "שמואלי ויטה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "שמואלי ויטה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "שמואלי ויטה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "אבירם גולדה"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "צוקרמן חנה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "תנעמי רחל"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "תנעמי רחל"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "תנעמי רחל"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "תנעמי רחל"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "תנעמי רחל"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "התעמלות",
+   "teachers": [
+    "פינקלשטיין זהבה"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": "אולם ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 1,
+   "room": "מחשבים ב'",
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "נוסבוים פייגי"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "סיוע בקריאה",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": true
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 7,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה/פרשה",
+   "teachers": [
+    "זילברמן עדינה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "זוסמן רחל"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "נויפלד צירל"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "ירושלמי שולמית"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "זהב",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הנדסה",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אומנות",
+   "teachers": [
+    "רייכמן חוה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "רוזנטל מרים"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "שינפלד חוה"
+   ],
+   "classes": [
+    "ד'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "כהנוביץ אסנת"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "ליבוביץ מרים"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ז'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ז'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "קאופמן אורה"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים",
+   "classes": [
+    "ה'1"
+   ],
+   "teachers": [
+    "סגלוביץ רחל",
+    "לנדסמן רייזי"
+   ],
+   "hours": 1,
+   "rooms": 2,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "סגלוביץ רחל"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "יפה חנה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "אורנשטיין רחל"
+   ],
+   "classes": [
+    "ד'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "צייטלין טליה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ד'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ד'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "דויטש גאולה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "לנדסמן רייזי"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "סופר מרים"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "שטרנברג בילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "א'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "הכט זהבה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "עמרם הניה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "הורוביץ צפורה"
+   ],
+   "classes": [
+    "ז'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תנועה במוזיקה",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ציור",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "בארי פנינה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'7"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נושא",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "א'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "טבע",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "אייזנברג דבורה"
+   ],
+   "classes": [
+    "ב'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'4"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. אבות",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ח'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ז'5"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ז'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הסטוריה",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ז'1"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "הייזלר קילא"
+   ],
+   "classes": [
+    "ה'2"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "עברית",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים ויהדות",
+   "teachers": [
+    "בירנבוים תמר"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "קנובלוך רבקה"
+   ],
+   "classes": [
+    "ח'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "קנובלוך רבקה"
+   ],
+   "classes": [
+    "ח'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "קנובלוך רבקה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "קנובלוך רבקה"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון והנדסה",
+   "teachers": [
+    "קנובלוך רבקה"
+   ],
+   "classes": [
+    "ה'3"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ב'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "פ. שבוע",
+   "teachers": [
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ב'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא + חיבור",
+   "teachers": [
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "אנגלית",
+   "teachers": [
+    "אלטמן עדינה"
+   ],
+   "classes": [
+    "ה'5"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חיבור והבנה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ספרות",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "הבנת הנקרא",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "גאוגרפיה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ה'6"
+   ],
+   "hours": 2,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "טאובר דינה"
+   ],
+   "classes": [
+    "ו'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "תורה",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "נביא",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 3,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מלאכה",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות חברה",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "יהדות",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דקדוק",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "דינים",
+   "teachers": [
+    "לויט מרים"
+   ],
+   "classes": [
+    "ה'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'2"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מולדת",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'1"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ד'3"
+   ],
+   "hours": 4,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "חשבון",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 5,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'6"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'5"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'4"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "ב. תפילה",
+   "teachers": [
+    "משרה פנויה"
+   ],
+   "classes": [
+    "ג'3"
+   ],
+   "hours": 1,
+   "room": null,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'7"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "בירנבוים תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'6"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "עמרם הניה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'5"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "צייטלין טליה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'4"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "בארי פנינה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'3"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "אייזנברג דבורה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'2"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "דרוק תהילה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / אומנות",
+   "classes": [
+    "ב'1"
+   ],
+   "teachers": [
+    "וינברג רחל",
+    "כהנוביץ אסנת"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'1"
+   ],
+   "teachers": [
+    "אייזנברג דבורה",
+    "ברנדס תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'6"
+   ],
+   "teachers": [
+    "סופר מרים",
+    "בירנבוים תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'5"
+   ],
+   "teachers": [
+    "טורק שרה",
+    "יפה חנה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'4"
+   ],
+   "teachers": [
+    "טורק שרה",
+    "בירנבוים תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'3"
+   ],
+   "teachers": [
+    "וולפסון כנרת",
+    "בירנבוים תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / מלאכה",
+   "classes": [
+    "ג'2"
+   ],
+   "teachers": [
+    "אייזנברג דבורה",
+    "בירנבוים תמר"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / כשורי חברה",
+   "classes": [
+    "ד'4"
+   ],
+   "teachers": [
+    "נוסבוים פייגי",
+    "פולק שרה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / כשורי חברה",
+   "classes": [
+    "ד'3"
+   ],
+   "teachers": [
+    "נוסבוים פייגי",
+    "פולק שרה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / כשורי חברה",
+   "classes": [
+    "ד'2"
+   ],
+   "teachers": [
+    "וורמסר מרים",
+    "פולק שרה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  },
+  {
+   "subject": "מחשבים / כשורי חברה",
+   "classes": [
+    "ד'1"
+   ],
+   "teachers": [
+    "וורמסר מרים",
+    "פולק שרה"
+   ],
+   "hours": 1,
+   "rooms": 1,
+   "pullout": false
+  }
+ ]
+}

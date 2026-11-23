@@ -5,3 +5,4 @@ langchain-openai>=0.3
 ortools>=9.10
 pydantic>=2.7
 truststore>=0.9
+langsmith>=0.3

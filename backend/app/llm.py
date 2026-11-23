@@ -204,7 +204,7 @@ def _build_chains():
          "- אם בקשה כבר מכוסה בדיוק בכלל פעיל, אל תוסיפי אותה שוב. אם זו כל ההודעה: type=info, "
          "וב-reply הסבירי שהכלל כבר קיים ומה הוא אומר. בקשה שמחמירה כלל קיים היא כלל חדש.\n"
          "- 'חלון אחד למורה' או 'X חלונות למורה' בלי המילה 'ביום' = max_gaps_per_week.\n"
-         "כיתות: {classes}. מורות: {teachers}. מקצועות: {subjects}.\n"
+         "כיתות: {classes} (אפשר לכתוב גם בלי גרש: א1 = א'1). מורות: {teachers}. מקצועות: {subjects}.\n"
          "אם יש ספק, unclear עם שאלה. אל תנחשי."),
         ("human", "ההודעה: {text}"),
     ]).partial(rules=RULE_KINDS_DOC, classes=", ".join(D.CLASSES),

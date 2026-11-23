@@ -102,7 +102,7 @@ def load_data(state: TimetableState):
                 else f" {len(unconfirmed)} בקשות של מורות לא תורגמו לכלל.")
     chat = say(msg)
     if unconfirmed:
-        chat += say("את הבקשות האלה של מורות לא הצלחתי לתרגם לכלל: " + " | ".join(unconfirmed) + ". "
+        chat += say("את הבקשות האלה של מורות לא הצלחתי לתרגם לכלל: " + "\n" + "\n".join("• " + u for u in unconfirmed) + ". "
                     "אם תרצי שאתחשב בהן, כתבי לי כאן במילים שלך מה צריך, ואנסה שוב.")
     return {"constraints": constraints, "pins": [], "round": 0, "published": False, "chat": chat}
 
@@ -137,7 +137,7 @@ def review_translations(state: TimetableState):
     if notes:
         # לא "לא הבנתי" וזהו: מזמינים את המנהלת להסביר במילים שלה, באותו צ'אט.
         # ההסבר שלה יעבור את המסלול הרגיל: interpret, ואם צריך clarify, simulate ו-confirm.
-        quoted = " | ".join(f"\"{n}\"" for n in notes)
+        quoted = "\n" + "\n".join(f"• \"{n}\"" for n in notes)
         chat += say(f"את ההערות האלה לא הצלחתי לתרגם לכלל: {quoted}. "
                     "אם תרצי, כתבי לי כאן במילים שלך מה התכוונת, ואנסה שוב. אפשר גם להתעלם.")
     return {"constraints": new_constraints, "chat": chat}
@@ -260,7 +260,7 @@ def answer(state: TimetableState):
         return {"chat": llm_notice() + say(a.get("reply") or a.get("summary") or "")}
     text = state["incoming"]["text"]
     teachers = D.find_teachers(text)
-    classes = [c for c in D.CLASSES if c in text]
+    classes = D.find_classes(text)
     lessons = state["result"].get("lessons", [])
 
     def schedule(match):

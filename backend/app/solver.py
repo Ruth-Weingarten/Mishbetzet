@@ -163,7 +163,32 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None):
     for cons in constraints:
         k, prm = cons["kind"], cons.get("params", {})
 
-        if k == "first_period_kodesh":
+        if k == "class_daily_load":
+            # חובה: יום לימודים סביר לכל כיתה (ראשון עד חמישי): מספר שיעורים קרוב לממוצע,
+            # ולא 7 שיעורים ביום אחד ושיעור אחד ביום אחר. שישי קצר ולא נכלל.
+            spread_by = prm.get("tolerance", 1)
+            for c in D.CLASSES:
+                total = sum(h for s, h in D.CLASS_CURRICULUM[c].items() if not is_pullout(c, s))
+                avg = (total - D.PERIODS_PER_DAY[5]) / 5
+                lo = max(3, int(avg) - spread_by)
+                for d in range(5):
+                    hi = min(D.PERIODS_PER_DAY[d], -(-int(avg * 10) // 10) + spread_by)
+                    day_total = sum(occ[c, d, p] for p in range(D.PERIODS_PER_DAY[d]))
+                    m.Add(day_total >= lo)
+                    m.Add(day_total <= hi)
+
+        elif k == "teacher_max_wait":
+            # חובה: מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום
+            mx = prm.get("max_wait", 1)
+            for t in D.TEACHERS:
+                for d in range(6):
+                    P = D.PERIODS_PER_DAY[d]
+                    for q in range(P):
+                        for r in range(q + mx + 2, P):
+                            m.AddBoolOr([busy[t, d, q].Not(), busy[t, d, r].Not()]
+                                        + [busy[t, d, x] for x in range(q + 1, r)])
+
+        elif k == "first_period_kodesh":
             for c in D.CLASSES:
                 kod = [s for s in D.CLASS_CURRICULUM[c] if D.SUBJECTS[s] == "kodesh" and not is_pullout(c, s)]
                 for d in range(6):

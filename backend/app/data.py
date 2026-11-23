@@ -197,6 +197,10 @@ SCHOOL_RULES = [
      "text": "מורה שמגיעה לשני שיעורים בלבד: צמודים, ומסיימת עד 10:30"},
     {"id": "R14", "kind": "max_work_days", "params": {"threshold": 20, "above": 5, "below": 4},
      "text": "מורה עם יותר מ-20 שעות: עד 5 ימי עבודה. עד 20 שעות: עד 4 ימים"},
+    {"id": "R18", "kind": "class_daily_load", "params": {"tolerance": 1}, "hard": True,
+     "text": "יום לימודים סביר: מספר השיעורים של כיתה ביום קרוב לממוצע (ראשון עד חמישי)"},
+    {"id": "R19", "kind": "teacher_max_wait", "params": {"max_wait": 1}, "hard": True,
+     "text": "מורה לא ממתינה יותר משעה אחת בין שני שיעורים באותו יום"},
     {"id": "R2", "kind": "spread", "params": {"subject": "אנגלית"},
      "text": "אנגלית: לא יותר משיעור אחד ביום בכיתה"},
     {"id": "R3", "kind": "spread", "params": {"subject": "הסטוריה"},
@@ -235,6 +239,16 @@ PRINCIPAL_NOTES = [
     {"id": "N16", "text": "תודה לכולן על שיתוף הפעולה, ושתהיה שנה טובה."},
     {"id": "N17", "text": "כדאי להתחשב ככל האפשר בבקשות של המורות הותיקות."},
 ]
+
+
+def find_classes(text: str) -> list:
+    """כיתות שמוזכרות בטקסט. מבינה גם בלי גרש: "א1", "כתה א 1", "א'1"."""
+    found = []
+    for g, n in re.findall(r"([א-ח])\s*['׳’`]?\s*(\d)", text):
+        c = f"{g}'{n}"
+        if c in CLASSES and c not in found:
+            found.append(c)
+    return found
 
 
 def find_teachers(text: str) -> list:

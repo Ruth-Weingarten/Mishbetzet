@@ -103,7 +103,20 @@ function Board({ school, run, busy, error, resume }: {
   const bodyRef = useRef<HTMLDivElement>(null)
   const w = run.waiting
 
-  useEffect(() => { bodyRef.current?.scrollTo(0, bodyRef.current.scrollHeight) }, [run, busy])
+  // הודעה חדשה: גוללים לתחילתה, כדי שהתשובה תהיה מול העיניים ולא תיחבא מעל הפתקים.
+  const seen = useRef(0)
+  useEffect(() => {
+    const body = bodyRef.current
+    if (!body) return
+    const first = body.children[seen.current] as HTMLElement | undefined
+    if (seen.current > 0 && run.chat.length > seen.current && first) {
+      body.scrollTo(0, Math.max(0, first.offsetTop - body.offsetTop - 8))
+    } else {
+      body.scrollTo(0, body.scrollHeight)
+    }
+    seen.current = run.chat.length
+  }, [run.chat.length])
+  useEffect(() => { if (busy) bodyRef.current?.scrollTo(0, bodyRef.current.scrollHeight) }, [busy])
 
   const flagged = useMemo(() => {
     const s = new Set<number>()

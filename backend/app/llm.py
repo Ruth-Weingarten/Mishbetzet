@@ -198,7 +198,11 @@ def _build_chains():
          "unclear (לא ברור: נסחי שאלת הבהרה), info (תשובה ישירה בלי שינוי).\n{rules}\n"
          "הכללים שכבר פעילים:\n{existing}\n"
          "החריגות הפתוחות:\n{conflicts}\n"
+         "השיחה עד כה:\n{history}\n"
          "הנחיות:\n"
+         "- הודעה יכולה להשלים את הקודמת (\"יש לה גם...\"). פרשי אותה לפי השיחה עד כה, ואל תשאלי שוב על מורה או כיתה שכבר הוזכרו.\n"
+         "- הודעה שמתארת מצב קיים או מתלוננת עליו (\"למורה X יש שני חלונות\", \"לכיתה Y יש שיעור אחד\") "
+         "היא question, לא add_rule ולא info. אל תגידי שכלל קיים מונע את זה: כלל רך יכול להיות מופר במערכת שנבנתה.\n"
          "- הודעה יכולה לכלול כמה בקשות. כל הכללים החדשים נכנסים יחד לרשימה rules.\n"
          "- חלק בהודעה שאינו מאותו סוג (למשל העברת שיעור יחד עם כללים) כתבי ב-unhandled. אל תשמיטי שום חלק בשקט.\n"
          "- אם בקשה כבר מכוסה בדיוק בכלל פעיל, אל תוסיפי אותה שוב. אם זו כל ההודעה: type=info, "
@@ -213,8 +217,9 @@ def _build_chains():
     answer_prompt = ChatPromptTemplate.from_messages([
         ("system",
          "את עוזרת למנהלת בית ספר להבין את מערכת השעות. עני בעברית פשוטה, בשניים-שלושה משפטים. "
-         "עני רק לפי הנתונים שמצורפים. אם התשובה לא נמצאת בהם, אמרי שאין לך את המידע. אל תמציאי."),
-        ("human", "הנתונים:\n{context}\n\nהשאלה: {question}"),
+         "עני רק לפי הנתונים שמצורפים. החלונות כבר מחושבים בנתונים: אל תחשבי אותם מחדש, "
+         "ואם המנהלת צודקת, אמרי לה את זה ומה לא קוים. אם התשובה לא נמצאת בנתונים, אמרי שאין לך את המידע. אל תמציאי."),
+        ("human", "השיחה עד כה:\n{history}\n\nהנתונים:\n{context}\n\nהשאלה: {question}"),
     ])
 
     explain_prompt = ChatPromptTemplate.from_template(
@@ -276,12 +281,13 @@ def translate_note(text: str) -> RuleProposal:
                  lambda: _fallback_rule(text))
 
 
-def interpret(text: str, conflicts: list, existing: list = ()) -> ChatAction:
+def interpret(text: str, conflicts: list, existing: list = (), history: str = "") -> ChatAction:
     if not USE_LLM:
         return _fallback_chat(text, conflicts)
     listed = "\n".join(f"- {c['id']}: {c['text']}" for c in conflicts) or "(אין)"
     rules = "\n".join(f"- {c['text']}" for c in existing) or "(אין)"
-    return _safe(lambda: chains()["interpret"].invoke({"text": text, "conflicts": listed, "existing": rules}),
+    return _safe(lambda: chains()["interpret"].invoke({"text": text, "conflicts": listed, "existing": rules,
+                                                      "history": history or "(תחילת שיחה)"}),
                  lambda: _fallback_chat(text, conflicts))
 
 
@@ -297,9 +303,10 @@ def explain(conflict: dict) -> str:
     return _safe(lambda: chains()["explain"].invoke({"base": base}), lambda: base)
 
 
-def answer(question: str, context: str) -> Optional[str]:
+def answer(question: str, context: str, history: str = "") -> Optional[str]:
     """עונה על שאלה לפי הנתונים בלבד. במצב הדגמה מחזיר None, והגרף משתמש בגרסה הפשוטה."""
     if not USE_LLM:
         return None
-    return _safe(lambda: chains()["answer"].invoke({"question": question, "context": context}),
+    return _safe(lambda: chains()["answer"].invoke({"question": question, "context": context,
+                                                    "history": history or "(תחילת שיחה)"}),
                  lambda: None)

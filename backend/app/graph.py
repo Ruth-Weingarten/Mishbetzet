@@ -235,9 +235,16 @@ def await_principal(state: TimetableState):
     return update
 
 
+def _history(state, n=6):
+    """השיחה האחרונה, כדי שהמודל יבין הודעות המשך ("יש לה גם שיעור חמישי...")."""
+    rows = [m for m in state.get("chat", []) if m.get("text")][-n:]
+    return "\n".join(("מנהלת: " if m["role"] == "principal" else "מערכת: ") + m["text"][:300] for m in rows)
+
+
 def interpret(state: TimetableState):
     text = state["incoming"]["text"]
-    action = llm.interpret(text, state.get("conflicts", []), state.get("constraints", []))
+    action = llm.interpret(text, state.get("conflicts", []), state.get("constraints", []),
+                           history=_history(state))
     return {"action": action.model_dump(), "chat": llm_notice()}
 
 
@@ -261,23 +268,41 @@ def answer(state: TimetableState):
     text = state["incoming"]["text"]
     teachers = D.find_teachers(text)
     classes = D.find_classes(text)
+    if not teachers and not classes:
+        # הודעת המשך: מחפשים את המורה או הכיתה בהודעות הקודמות של המנהלת
+        for m in reversed([m for m in state.get("chat", []) if m["role"] == "principal"]):
+            teachers, classes = D.find_teachers(m["text"]), D.find_classes(m["text"])
+            if teachers or classes:
+                break
     lessons = state["result"].get("lessons", [])
 
-    def schedule(match):
-        lines = []
+    def schedule(match, gaps=False):
+        lines, total = [], 0
         for d, day in enumerate(D.DAYS):
             items = sorted((l for l in lessons if l["day"] == d and match(l)), key=lambda l: l["period"])
-            lines.append(f"{day}: " + (", ".join(f"שעה {l['period'] + 1} {l['subject']} ({l['cls']})"
-                                                  for l in items) or "חופשי"))
+            line = f"{day}: " + (", ".join(f"שעה {l['period'] + 1} {l['subject']} ({l['cls']})"
+                                            for l in items) or "חופשי")
+            if gaps and items:
+                ps = sorted({l["period"] for l in items})
+                free = [p + 1 for p in range(ps[0], ps[-1]) if p not in ps]
+                total += len(free)
+                line += f"  ← חלונות ביום הזה: {len(free)}" + (f" (שעות {', '.join(map(str, free))})" if free else "")
+            lines.append(line)
+        if gaps:
+            lines.append(f"סך החלונות בשבוע: {total}")
         return "\n".join(lines)
 
     if not teachers and not classes:
         return {"chat": say("על איזו מורה או כיתה השאלה? כתבי את השם, ואענה לפי המערכת.")}
 
-    # 1. שולפים את הנתונים הרלוונטיים בלבד
+    # 1. שולפים את הנתונים הרלוונטיים בלבד. החלונות מחושבים כאן, לא על ידי המודל.
     parts = []
     for t in teachers:
-        parts.append(f"המערכת של {t}:\n" + schedule(lambda l, t=t: t in l["teachers"]))
+        parts.append(f"המערכת של {t}:\n" + schedule(lambda l, t=t: t in l["teachers"], gaps=True))
+        broken = [f"{v['text']} ({i['label']})" for v in state["result"].get("violations", [])
+                  for i in v["instances"] if t in i["label"]]
+        if broken:
+            parts.append(f"כללים שלא קוימו עבור {t}: " + "; ".join(broken))
     for c in classes:
         parts.append(f"המערכת של כיתה {c}:\n" + schedule(lambda l, c=c: l["cls"] == c))
     related = [x["text"] for x in state["constraints"]
@@ -286,7 +311,7 @@ def answer(state: TimetableState):
     context = "\n\n".join(parts)
 
     # 2. מודל השפה עונה לפי הנתונים. במצב הדגמה: מציגים את הנתונים עצמם.
-    reply = llm.answer(text, context) or context.split("\n\nכללים")[0]
+    reply = llm.answer(text, context, _history(state)) or context.split("\n\nכללים")[0]
     return {"chat": llm_notice() + say(reply)}
 
 

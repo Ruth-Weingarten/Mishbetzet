@@ -314,8 +314,8 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "min_lessons_per_day":
             # אם המורה מגיעה ביום מסוים, שתלמד בו לפחות mn שיעורים
             mn = prm.get("min", 2)
-            for t in D.TEACHERS:
-                for d in range(ND):
+            for t in (prm.get("teachers") or D.TEACHERS):      # אפשר להגביל למורות מסוימות
+                for d in (prm.get("days") or range(ND)):        # ולימים מסוימים
                     P = D.PERIODS_PER_DAY[d]
                     day_busy = [busy[t, d, p] for p in range(P)]
                     works = m.NewBoolVar("")

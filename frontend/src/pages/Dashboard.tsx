@@ -5,7 +5,7 @@ export default function Dashboard({ school, run, go }: { school: School; run: Ru
   const withForm = school.teachers.filter(t => t.form?.submitted)
   const stage = !run ? 5 : run.published ? 7 : 6
   const steps: [string, string][] = [
-    ['מבנה', `${school.classes.length} כיתות · 6 ימים`],
+    ['מבנה', `${school.classes.length} כיתות · ${school.days.length} ימים`],
     ['מורות', `${school.teachers.length} מורות`],
     ['טפסים', `${withForm.length} מתוך ${school.teachers.length}`],
     ['שיבוץ', `${school.grades.length} שכבות`],

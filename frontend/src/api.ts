@@ -13,7 +13,19 @@ async function call<T>(url: string, body?: unknown, method = 'POST'): Promise<T>
   return res.json()
 }
 
+export type SchoolStatus = { custom: boolean; classes: number; teachers: number; subjects: number; days: number; problems: string[] }
+export type ImportResult = Partial<SchoolStatus> & { ok: boolean; errors: string[]; warnings: string[] }
+
 export const api = {
+  schoolStatus: () => call<SchoolStatus>('/api/school/status'),
+  schoolImport: async (file: File): Promise<ImportResult> => {
+    const fd = new FormData()
+    fd.append('file', file)
+    const res = await fetch('/api/school/import', { method: 'POST', body: fd })
+    if (!res.ok) throw new Error(`שגיאה ${res.status}`)
+    return res.json()
+  },
+  schoolReset: () => call<SchoolStatus>('/api/school/reset', {}),
   school: () => call<School>('/api/school'),
   patchRule: (id: string, body: { enabled?: boolean; text?: string; params?: Record<string, number> }) =>
     call<unknown>(`/api/rules/${encodeURIComponent(id)}`, body, 'PUT'),

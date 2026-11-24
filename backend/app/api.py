@@ -12,15 +12,18 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from langgraph.types import Command
 from pydantic import BaseModel
 
+import importlib
+
 from . import data as D
 from . import llm
+from . import school_io
 from .graph import graph, teacher_graph
 
 app = FastAPI(title="משבצת")
@@ -227,6 +230,49 @@ def save_form(teacher: str, body: FormBody):
         form["confirmed_rule"] = old.get("confirmed_rule")
     D.FORMS[teacher] = form
     return form
+
+
+# ---------- בית ספר מותאם: ייבוא מאקסל ----------
+
+def _reload_school():
+    """טוענת מחדש את נתוני בית הספר (אחרי ייבוא או חזרה להדגמה) ומתחילה הכול מחדש."""
+    importlib.reload(D)
+    llm._CHAINS = None
+    RUNS.clear()
+
+
+def _summary():
+    return {"custom": D.IS_CUSTOM, "classes": len(D.CLASSES), "teachers": len(D.TEACHERS),
+            "subjects": len(D.SUBJECTS), "days": len(D.DAYS), "problems": D.data_problems()}
+
+
+@app.get("/api/school/template")
+def school_template():
+    return Response(school_io.make_template(),
+                    media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    headers={"Content-Disposition": "attachment; filename=school-template.xlsx"})
+
+
+@app.get("/api/school/status")
+def school_status():
+    return _summary()
+
+
+@app.post("/api/school/import")
+async def school_import(file: UploadFile = File(...)):
+    raw, errors, warnings = school_io.import_workbook(await file.read())
+    if errors:
+        return {"ok": False, "errors": errors, "warnings": warnings}
+    school_io.save_custom(raw)
+    _reload_school()
+    return {"ok": True, "errors": [], "warnings": warnings, **_summary()}
+
+
+@app.post("/api/school/reset")
+def school_reset():
+    school_io.clear_custom()
+    _reload_school()
+    return {"ok": True, **_summary()}
 
 
 # ---------- הגשת הממשק הבנוי ----------

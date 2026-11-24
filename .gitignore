@@ -1,11 +1,12 @@
-# סודות: לא מעלים ל-GitHub
-.env
-backend/.env
 
+# סודות: לא מעלים ל-GitHub
 # קבצים שנוצרים אוטומטית
-.venv/
-backend/.venv/
-__pycache__/
-node_modules/
-frontend/node_modules/
 *.tsbuildinfo
+.env
+.venv/
+__pycache__/
+backend/.env
+backend/.venv/
+backend/app/custom_school.json
+frontend/node_modules/
+node_modules/

@@ -34,6 +34,8 @@ _SEED = os.path.join(os.path.dirname(__file__), "seed_solution.json")
 def _load_seed():
     """מערכת תקפה שמורה מראש. משמשת כרמז התחלתי לפותר, כדי שימצא פתרון ראשון מהר
     (עם הכללים הקשיחים, בלי רמז, זה יכול לקחת כמה דקות). אם הנתונים השתנו, הרמז פשוט נפסל חלקית."""
+    if D.IS_CUSTOM:
+        return []
     try:
         import json
         with open(_SEED, encoding="utf-8") as f:
@@ -50,8 +52,9 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
     """previous: השיעורים מהפתרון הקודם. הפותר משתדל לא להזיז אותם (יציבות).
     hint: פתרון התחלתי בלבד (בלי קנס יציבות): עוזר לפותר למצוא פתרון ראשון מהר."""
     pins = pins or []
+    ND = len(D.DAYS)   # מספר ימי הלימוד בשבוע
     m = cp_model.CpModel()
-    slots = [(d, p) for d in range(6) for p in range(D.PERIODS_PER_DAY[d])]
+    slots = [(d, p) for d in range(ND) for p in range(D.PERIODS_PER_DAY[d])]
 
     # y[c, s, d, p] = האם מקצוע s של כיתה c מתקיים ביום d בשעה p
     y = {}
@@ -71,7 +74,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             o = m.NewBoolVar("")
             m.Add(sum(y[c, s, d, p] for s in regular) == o)     # לכל היותר שיעור אחד
             occ[c, d, p] = o
-        for d in range(6):
+        for d in range(ND):
             P = D.PERIODS_PER_DAY[d]
             # --- חובה: הכיתה לומדת בכל יום, מהשעה הראשונה ובלי חלונות לתלמידות
             m.Add(occ[c, d, 0] == 1)
@@ -184,25 +187,29 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # חובה: יום לימודים סביר לכל כיתה (ראשון עד חמישי): מספר שיעורים קרוב לממוצע,
             # ולא 7 שיעורים ביום אחד ושיעור אחד ביום אחר. שישי קצר ולא נכלל.
             spread_by = prm.get("tolerance", 1)
+            last = ND - 1
+            short_last = D.PERIODS_PER_DAY[last] < D.PERIODS_PER_DAY[0]   # יש יום קצר בסוף השבוע
+            full_last = bool(prm.get("friday_full")) and short_last
+            days = list(range(last)) if full_last else list(range(ND))
             for c in D.CLASSES:
                 total = sum(h for s, h in D.CLASS_CURRICULUM[c].items() if not is_pullout(c, s))
-                avg = (total - D.PERIODS_PER_DAY[5]) / 5
+                avg = (total - (D.PERIODS_PER_DAY[last] if full_last else 0)) / len(days)
                 lo = min(prm.get("min_lessons", 5), int(avg))   # אין כיתה עם פחות מ-5 שיעורים ביום (ראשון-חמישי)
-                for d in range(5):
+                for d in days:
                     hi = min(D.PERIODS_PER_DAY[d], -(-int(avg * 10) // 10) + spread_by)
                     day_total = sum(occ[c, d, p] for p in range(D.PERIODS_PER_DAY[d]))
                     m.Add(day_total >= lo)
                     m.Add(day_total <= hi)
-                if prm.get("friday_full"):
-                    # שישי: כל ארבע השעות, כמו במערכת של בית הספר
-                    for p in range(D.PERIODS_PER_DAY[5]):
-                        m.Add(occ[c, 5, p] == 1)
+                if full_last:
+                    # יום אחרון קצר (שישי): כל המשבצות, כמו במערכת של בית הספר
+                    for p in range(D.PERIODS_PER_DAY[last]):
+                        m.Add(occ[c, last, p] == 1)
 
         elif k == "teacher_free_day_base":
             # חובה: לכל מורה לפחות יום חופשי אחד בשבוע (אין מורה שעובדת 6 ימים)
             for t in D.TEACHERS:
                 works = []
-                for d in range(6):
+                for d in range(ND):
                     w = m.NewBoolVar("")
                     m.AddMaxEquality(w, [busy[t, d, p] for p in range(D.PERIODS_PER_DAY[d])])
                     works.append(w)
@@ -212,7 +219,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום (קנס כבד)
             mx = prm.get("max_wait", 1)
             for t in D.TEACHERS:
-                for d in range(6):
+                for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     # pre[p]: יש שיעור באחת השעות 0..p.  suf[p]: יש שיעור באחת השעות p..P-1
                     pre = [busy[t, d, 0]]
@@ -241,7 +248,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
                     # במערכת האמיתית: קודש בשעה הראשונה ברוב הימים, לא בכולם.
                     # הכלל: לפחות min_days ימים בכל כיתה. כל יום חסר מעבר לכך הוא הפרה.
                     miss = []
-                    for d in range(6):
+                    for d in range(ND):
                         got = m.NewBoolVar("")
                         m.Add(sum(y[c, s, d, 0] for s in kod) >= got)
                         miss.append(1 - got)
@@ -250,7 +257,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
                     m.Add(extra >= sum(miss) - allowed)
                     soft(cons, c, f"{c} · קודש בשעה הראשונה בפחות מ־{prm['min_days']} ימים", extra)
                     continue
-                for d in range(6):
+                for d in range(ND):
                     v = m.NewBoolVar("")
                     m.Add(sum(y[c, s, d, 0] for s in kod) + v >= 1)
                     soft(cons, f"{c}|{d}", f"{c} · {D.DAYS[d]}", v)
@@ -270,7 +277,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             for c in D.CLASSES:
                 if s not in D.CLASS_CURRICULUM[c] or ("grades" in prm and D.grade_of(c) not in prm["grades"]):
                     continue
-                for d in range(6):
+                for d in range(ND):
                     v = m.NewBoolVar("")
                     for p in range(D.PERIODS_PER_DAY[d] - 1):
                         m.Add(y[c, s, d, p] + y[c, s, d, p + 1] <= 1 + v)
@@ -281,7 +288,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             for c in D.CLASSES:
                 if s not in D.CLASS_CURRICULUM[c]:
                     continue
-                for d in range(6):
+                for d in range(ND):
                     v = m.NewBoolVar("")
                     m.Add(sum(y[c, s, d, p] for p in range(D.PERIODS_PER_DAY[d])) <= 1 + 6 * v)
                     soft(cons, f"{c}|{d}", f"{c} · {D.DAYS[d]}", v)
@@ -289,7 +296,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "teacher_gaps":
             mx = prm.get("max_per_day", 1)
             for t in D.TEACHERS:
-                for d in prm.get("days", range(6)):
+                for d in prm.get("days", range(ND)):
                     v = m.NewBoolVar("")
                     m.Add(sum(day_gaps(t, d)) <= mx + D.PERIODS_PER_DAY[d] * v)
                     soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
@@ -299,7 +306,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # הקנס עולה עם כל חלון מעל המותר (לא רק "עברה / לא עברה")
             mx = prm.get("max", 2)
             for t in D.TEACHERS:
-                week = [g for d in range(6) for g in day_gaps(t, d)]
+                week = [g for d in range(ND) for g in day_gaps(t, d)]
                 v = m.NewIntVar(0, len(week), "")
                 m.Add(v >= sum(week) - mx)
                 soft(cons, t, t, v)
@@ -308,7 +315,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # אם המורה מגיעה ביום מסוים, שתלמד בו לפחות mn שיעורים
             mn = prm.get("min", 2)
             for t in D.TEACHERS:
-                for d in range(6):
+                for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     day_busy = [busy[t, d, p] for p in range(P)]
                     works = m.NewBoolVar("")
@@ -321,7 +328,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # מורה לא מתחילה את היום אחרי max_start שיעורים: אם יש לה שיעור בשעה מאוחרת, חייב להיות לה שיעור באחת הראשונות
             ms = prm.get("max_start", 3)
             for t in D.TEACHERS:
-                for d in range(6):
+                for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     if P <= ms:
                         continue
@@ -337,7 +344,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
                 for s in D.CLASS_CURRICULUM[c]:
                     if is_pullout(c, s):
                         continue
-                    for d in range(6):
+                    for d in range(ND):
                         v = m.NewBoolVar("")
                         m.Add(sum(y[c, s, d, p] for p in range(D.PERIODS_PER_DAY[d])) <= mx + 6 * v)
                         soft(cons, f"{c}|{s}|{d}", f"{c} · {s} · {D.DAYS[d]}", v)
@@ -346,7 +353,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # יום קצר (עד max_lessons שיעורים): השיעורים צמודים, ומסתיימים עד last_period
             mx, last = prm.get("max_lessons", 2), prm.get("last_period", 2)
             for t in D.TEACHERS:
-                for d in range(6):
+                for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     day_busy = [busy[t, d, p] for p in range(P)]
                     works = m.NewBoolVar("")
@@ -367,7 +374,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             for t in D.TEACHERS:
                 limit = prm.get("above", 5) if hours[t] > prm.get("threshold", 20) else prm.get("below", 4)
                 works = []
-                for d in range(6):
+                for d in range(ND):
                     w = m.NewBoolVar("")
                     m.AddMaxEquality(w, [busy[t, d, p] for p in range(D.PERIODS_PER_DAY[d])])
                     works.append(w)
@@ -384,7 +391,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
 
         elif k == "teacher_not_periods":
             for t in prm["teachers"]:
-                for d in prm.get("days", range(6)):
+                for d in prm.get("days", range(ND)):
                     v = m.NewBoolVar("")
                     for p in prm["periods"]:
                         if p < D.PERIODS_PER_DAY[d]:
@@ -409,7 +416,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
     # --- מינימום חלונות כללי: כל חלון של מורה (בכל יום) עולה קנס קטן.
     # המערכת האמיתית הגיעה בממוצע לפחות מחלון אחד בשבוע למורה, ומורות התלוננו גם על זה.
     for t in D.TEACHERS:
-        for d in range(6):
+        for d in range(ND):
             for g in day_gaps(t, d):
                 penalties.append((g, GAP_WEIGHT))
 

@@ -9,14 +9,20 @@ import json
 import re
 from pathlib import Path
 
-DAYS = ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"]
+# בית ספר מותאם: אם יובא קובץ אקסל, הנתונים שלו נשמרים כאן וטוענים אותם במקום נתוני ההדגמה.
+CUSTOM_FILE = Path(__file__).parent / "custom_school.json"
+IS_CUSTOM = CUSTOM_FILE.exists()
+_CUSTOM = json.loads(CUSTOM_FILE.read_text(encoding="utf-8")) if IS_CUSTOM else {}
+_SET = _CUSTOM.get("settings", {})
+
+DAYS = _SET.get("days") or ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי"]
 
 # מספר המשבצות בכל יום (ראשון עד שישי). יום שישי קצר.
 # לא כל כיתה ממלאת את כל המשבצות: כיתה א' לומדת 29 שעות, כיתה ח' 37.
-PERIODS_PER_DAY = [7, 7, 7, 7, 7, 4]
+PERIODS_PER_DAY = _SET.get("periods") or [7, 7, 7, 7, 7, 4]
 
 # שעות השיעורים: (התחלה, סיום)
-PERIOD_TIMES = [
+PERIOD_TIMES = [tuple(x) for x in _SET["times"]] if _SET.get("times") else [
     ("08:00", "08:45"),
     ("08:45", "09:30"),
     ("09:45", "10:30"),
@@ -30,15 +36,20 @@ PERIOD_TIMES = [
 # הנתונים של בית הספר: מתוך דוח הפעילויות של מערכת תשפ"ז
 # (מי מלמדת מה, באיזו כיתה, כמה שעות). נוצר מהקובץ school.json.
 # ---------------------------------------------------------------------
-_RAW = json.loads((Path(__file__).parent / "school.json").read_text(encoding="utf-8"))
+_RAW = _CUSTOM if IS_CUSTOM else json.loads((Path(__file__).parent / "school.json").read_text(encoding="utf-8"))
 
-GRADES = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'"]
 CLASSES = _RAW["classes"]          # 49 כיתות
-HOMEROOM = _RAW["homeroom"]        # המחנכת של כל כיתה
+HOMEROOM = _RAW.get("homeroom", {})   # המחנכת של כל כיתה
 
 
 def grade_of(cls: str) -> str:
-    return cls[:2]
+    """השכבה של כיתה: שם הכיתה בלי המספר בסוף (א'3 -> א')."""
+    g = re.sub(r"[\s\d]+$", "", cls)
+    return g or cls
+
+
+GRADES = list(dict.fromkeys(grade_of(c) for c in CLASSES))
+GRADES_ORDER = ["א'", "ב'", "ג'", "ד'", "ה'", "ו'", "ז'", "ח'", "ט'", "י'"]
 
 
 # קבוצות מקצועות (משמשות לצבעים ולכללים כמו "קודש בשעה ראשונה")
@@ -60,7 +71,7 @@ def _group(subject: str) -> str:
     return "other"
 
 
-VICE = ["פריד נחמה", "בלוך מלכה", "קלוגר הודיה"]   # הסגניות
+VICE = [] if IS_CUSTOM else ["פריד נחמה", "בלוך מלכה", "קלוגר הודיה"]   # הסגניות
 
 _HE2EN = dict(zip("אבגדהוזחטיכלמנסעפצקרשתךםןףץ",
                   ["a", "b", "g", "d", "h", "v", "z", "ch", "t", "y", "k", "l", "m", "n", "s", "", "p",
@@ -106,7 +117,7 @@ def _build():
             assignment[(c, s)] = {
                 "kind": "parallel" if len(it["teachers"]) > 1 else "fixed",
                 "teachers": it["teachers"],
-                "homeroom": it["teachers"] == [HOMEROOM[c]],
+                "homeroom": it["teachers"] == [HOMEROOM.get(c)],
                 "block": block,
                 "pullout": it.get("pullout", False),
                 "rooms": it.get("rooms", 1),
@@ -124,9 +135,15 @@ for _cur in CLASS_CURRICULUM.values():
         CURRICULUM[_s] = max(CURRICULUM.get(_s, 0), _h)
 
 # חדרים מיוחדים, וכמה שיעורים יכולים להתקיים בהם באותה שעה
-ROOM_CAPACITY = {"אולם": 2, "חדר מחשבים": 2}
-ROOMS = {s: "אולם" for s in SUBJECTS if s == "התעמלות"}
-ROOMS.update({s: "חדר מחשבים" for s in SUBJECTS if "מחשבים" in s})
+if IS_CUSTOM:
+    ROOM_CAPACITY = dict(_SET.get("rooms", {}))
+    ROOMS = {it["subject"]: it["room"] for it in _RAW["items"] if it.get("room")}
+    for _r in set(ROOMS.values()):
+        ROOM_CAPACITY.setdefault(_r, 1)
+else:
+    ROOM_CAPACITY = {"אולם": 2, "חדר מחשבים": 2}
+    ROOMS = {s: "אולם" for s in SUBJECTS if s == "התעמלות"}
+    ROOMS.update({s: "חדר מחשבים" for s in SUBJECTS if "מחשבים" in s})
 
 HOMEROOM_SUBJECTS = sorted({s for (c, s), a in ASSIGNMENT.items() if a["homeroom"]})
 
@@ -179,8 +196,8 @@ def blocked():
 
 # כללי בית הספר שהמנהלת סימנה מהרשימה (נשמרו מהשנה הקודמת)
 SCHOOL_RULES = [
-    {"id": "R1", "kind": "first_period_kodesh", "params": {"min_days": 4},
-     "text": "מקצוע קודש בשעה הראשונה לפחות ב־4 מתוך 6 ימים בכל כיתה"},
+    {"id": "R1", "kind": "first_period_kodesh", "params": {"min_days": 3},
+     "text": "מקצוע קודש בשעה הראשונה לפחות ב־3 מתוך 6 ימים בכל כיתה"},
     {"id": "R20", "kind": "teacher_free_day_base", "params": {"min_free_days": 1}, "hard": True,
      "text": "לכל מורה לפחות יום חופשי אחד בשבוע (אין מורה שעובדת 6 ימים)"},
     {"id": "R5", "kind": "subject_days", "params": {"subject": "פ. שבוע", "days": [2, 3, 4, 5]},
@@ -189,7 +206,7 @@ SCHOOL_RULES = [
      "text": "כיתות א'-ה' בלי שיעורי חשבון כפולים"},
     {"id": "R8", "kind": "teacher_gaps", "params": {"max_per_day": 1}, "weight": 250,
      "text": "לא יותר מחלון אחד ביום לכל מורה"},
-    {"id": "R10", "kind": "min_lessons_per_day", "params": {"min": 2},
+    {"id": "R10", "kind": "min_lessons_per_day", "params": {"min": 2}, "weight": 40,
      "text": "מורה לא מגיעה ליום עם פחות משני שיעורים"},
     {"id": "R11", "kind": "max_gaps_per_week", "params": {"max": 2},
      "text": "לא יותר משני חלונות בשבוע לכל מורה"},
@@ -197,7 +214,7 @@ SCHOOL_RULES = [
      "text": "אין חלונות ביום שישי"},
     {"id": "R13", "kind": "short_day_early", "params": {"max_lessons": 2, "last_period": 2}, "weight": 250,
      "text": "מורה שמגיעה לשני שיעורים בלבד: צמודים, ומסיימת עד 10:30"},
-    {"id": "R14", "kind": "max_work_days", "params": {"threshold": 20, "above": 5, "below": 4},
+    {"id": "R14", "kind": "max_work_days", "params": {"threshold": 20, "above": 5, "below": 4}, "enabled": False,
      "text": "מורה עם יותר מ-20 שעות: עד 5 ימי עבודה. עד 20 שעות: עד 4 ימים"},
     {"id": "R18", "kind": "class_daily_load", "params": {"tolerance": 1, "friday_full": True, "min_lessons": 5}, "hard": True,
      "text": "יום לימודים סביר: לכל כיתה לפחות 5 שיעורים בכל יום מראשון עד חמישי, קרוב לממוצע, ושישי מלא (4 שעות)"},
@@ -205,9 +222,9 @@ SCHOOL_RULES = [
      "text": "מורה לא מתחילה את היום אחרי 3 שיעורים: השיעור הראשון שלה לכל היותר בשעה 3"},
     {"id": "R22", "kind": "subject_max_per_day", "params": {"max": 2}, "weight": 250,
      "text": "אותו מקצוע בכיתה: לא יותר משני שיעורים ביום (למשל לא 4 שיעורי תורה באותו יום)"},
-    {"id": "R19", "kind": "teacher_max_wait", "params": {"max_wait": 1},
+    {"id": "R19", "kind": "teacher_max_wait", "params": {"max_wait": 1}, "weight": 60,
      "text": "מורה לא ממתינה יותר משעה אחת בין שני שיעורים באותו יום"},
-    {"id": "R2", "kind": "spread", "params": {"subject": "אנגלית"},
+    {"id": "R2", "kind": "spread", "params": {"subject": "אנגלית"}, "enabled": False,
      "text": "אנגלית: לא יותר משיעור אחד ביום בכיתה"},
     {"id": "R3", "kind": "spread", "params": {"subject": "הסטוריה"},
      "text": "היסטוריה: לא שני שיעורים באותו יום"},
@@ -226,7 +243,7 @@ SCHOOL_RULES = [
 ]
 
 # הערות חופשיות של המנהלת (יתורגמו לכללים)
-PRINCIPAL_NOTES = [
+_DEMO_NOTES = [
     {"id": "N1", "text": "סגניות: פריד, בלוך ובעיקר ה. קלוגר - לא לשבץ שעה ראשונה."},
     {"id": "N2", "text": "צירל נויפלד - ללא בקרים, ככל שניתן בארבעה ימים."},
     {"id": "N3", "text": "ברכה כגן - ללא בקרים."},
@@ -245,6 +262,30 @@ PRINCIPAL_NOTES = [
     {"id": "N16", "text": "תודה לכולן על שיתוף הפעולה, ושתהיה שנה טובה."},
     {"id": "N17", "text": "כדאי להתחשב ככל האפשר בבקשות של המורות הותיקות."},
 ]
+PRINCIPAL_NOTES = [] if IS_CUSTOM else _DEMO_NOTES
+
+
+def _adapt_rule(r):
+    """בבית ספר מותאם: מסירים כללים שלא רלוונטיים (מקצוע שאין, יום שאין)."""
+    p = dict(r.get("params", {}))
+    if "subject" in p and p["subject"] not in SUBJECTS:
+        return None
+    if "days" in p:
+        days = [d for d in p["days"] if d < len(DAYS)]
+        if not days or len(days) == len(DAYS):
+            return None
+        p["days"] = days
+    if "grades" in p:
+        p["grades"] = [g for g in p["grades"] if g in GRADES]
+        if not p["grades"]:
+            return None
+    if r["kind"] == "first_period_kodesh" and "kodesh" not in SUBJECTS.values():
+        return None
+    return dict(r, params=p)
+
+
+if IS_CUSTOM:
+    SCHOOL_RULES = [x for x in (_adapt_rule(r) for r in SCHOOL_RULES) if x]
 
 
 def find_classes(text: str) -> list:
@@ -462,4 +503,7 @@ def _make_forms():
     return out
 
 
-FORMS.update(_make_forms())
+if IS_CUSTOM:
+    FORMS.update({t: _form(None, None, _subjects_of(t)) for t in TEACHERS})
+else:
+    FORMS.update(_make_forms())

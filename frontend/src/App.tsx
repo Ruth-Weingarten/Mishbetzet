@@ -7,6 +7,7 @@ import Forms from './pages/Forms'
 import Home from './pages/Home'
 import Login, { type User } from './pages/Login'
 import Rules from './pages/Rules'
+import SchoolData from './pages/SchoolData'
 import TeacherView from './pages/TeacherView'
 import Workspace from './pages/Workspace'
 import type { Run, School } from './types'
@@ -17,6 +18,7 @@ const TABS = [
   { id: 'assign', label: 'שיבוץ', color: '#A9CBE3' },
   { id: 'rules', label: 'כללים', color: '#E9B8A6' },
   { id: 'work', label: 'בניית המערכת', color: '#B7D3B0' },
+  { id: 'school', label: 'בית הספר', color: '#C9D6EA' },
 ]
 
 export default function App() {
@@ -88,6 +90,7 @@ export default function App() {
           {tab === 'assign' && <Assignment school={school} onChanged={loadSchool} />}
           {tab === 'rules' && <Rules school={school} onChanged={loadSchool} />}
           {tab === 'work' && <Workspace school={school} run={run} setRun={setRun} />}
+          {tab === 'school' && <SchoolData onChanged={() => { setRun(null); loadSchool() }} />}
         </main>
       )}
     </>

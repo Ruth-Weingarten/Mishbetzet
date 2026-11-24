@@ -25,6 +25,7 @@ DEFAULT_WEIGHTS = {
     "teacher_max_wait": 30,   # המתנה ארוכה של מורה: קנס כבד, אבל לא חובה (חובה מקשה מאוד על הפותר)
 }
 WEIGHT = 10
+CHAT_WEIGHT = 100   # בקשה שהמנהלת כתבה בצ'אט: חשובה הרבה יותר מכלל רגיל
 GAP_WEIGHT = 6   # קנס לכל חלון של מורה, בנוסף לכללים
 
 
@@ -155,7 +156,8 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif key in cons.get("waived", []):
             return
         else:
-            penalties.append((viol, weight or cons.get("weight") or DEFAULT_WEIGHTS.get(cons["kind"], WEIGHT)))
+            penalties.append((viol, weight or cons.get("weight")
+                              or (CHAT_WEIGHT if cons.get("source") == "chat" else DEFAULT_WEIGHTS.get(cons["kind"], WEIGHT))))
         instances.append((cons["id"], key, label, viol))
 
     gap_cache = {}
@@ -207,7 +209,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
 
         elif k == "teacher_free_day_base":
             # חובה: לכל מורה לפחות יום חופשי אחד בשבוע (אין מורה שעובדת 6 ימים)
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 works = []
                 for d in range(ND):
                     w = m.NewBoolVar("")
@@ -218,7 +220,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "teacher_max_wait":
             # מורה לא ממתינה יותר מ-max_wait שעות רצופות בין שני שיעורים באותו יום (קנס כבד)
             mx = prm.get("max_wait", 1)
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     # pre[p]: יש שיעור באחת השעות 0..p.  suf[p]: יש שיעור באחת השעות p..P-1
@@ -295,8 +297,8 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
 
         elif k == "teacher_gaps":
             mx = prm.get("max_per_day", 1)
-            for t in D.TEACHERS:
-                for d in prm.get("days", range(ND)):
+            for t in (prm.get("teachers") or D.TEACHERS):
+                for d in (prm.get("days") or range(ND)):
                     v = m.NewBoolVar("")
                     m.Add(sum(day_gaps(t, d)) <= mx + D.PERIODS_PER_DAY[d] * v)
                     soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
@@ -305,7 +307,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             # סך החלונות של המורה בכל השבוע
             # הקנס עולה עם כל חלון מעל המותר (לא רק "עברה / לא עברה")
             mx = prm.get("max", 2)
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 week = [g for d in range(ND) for g in day_gaps(t, d)]
                 v = m.NewIntVar(0, len(week), "")
                 m.Add(v >= sum(week) - mx)
@@ -327,7 +329,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "teacher_latest_start":
             # מורה לא מתחילה את היום אחרי max_start שיעורים: אם יש לה שיעור בשעה מאוחרת, חייב להיות לה שיעור באחת הראשונות
             ms = prm.get("max_start", 3)
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     if P <= ms:
@@ -352,7 +354,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "short_day_early":
             # יום קצר (עד max_lessons שיעורים): השיעורים צמודים, ומסתיימים עד last_period
             mx, last = prm.get("max_lessons", 2), prm.get("last_period", 2)
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 for d in range(ND):
                     P = D.PERIODS_PER_DAY[d]
                     day_busy = [busy[t, d, p] for p in range(P)]
@@ -371,7 +373,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif k == "max_work_days":
             # מורה עם יותר מ-threshold שעות: עד above ימים. אחרות: עד below ימים.
             hours = D.teacher_hours()
-            for t in D.TEACHERS:
+            for t in (prm.get("teachers") or D.TEACHERS):
                 limit = prm.get("above", 5) if hours[t] > prm.get("threshold", 20) else prm.get("below", 4)
                 works = []
                 for d in range(ND):

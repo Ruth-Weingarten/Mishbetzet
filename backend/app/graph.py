@@ -331,7 +331,10 @@ def simulate(state: TimetableState):
         rules = [r for r in a.get("rules") or [] if r.get("matched") and r.get("kind")]
         if not rules:
             return {"simulation": None,
-                    "chat": say("לא מצאתי כלל שמתאים לבקשה. נסי לנסח אותה אחרת.")}
+                    "chat": say("לא הצלחתי להפוך את זה לכלל במערכת. אני יכולה, למשל: לתת למורה יום חופשי, "
+                                "להגביל חלונות של מורה (ביום או בשבוע), לדרוש לפחות שני שיעורים ביום שהמורה באה, "
+                                "לקבוע שעת התחלה או סיום למורה, או לאסור מקצוע בימים מסוימים. "
+                                "אפשר לכתוב בחופשיות, למשל: \"לשיינדי זינגר יש יותר מדי חלונות\".")}
         for r in rules:
             cid = f"C{len(constraints) + 1}"
             new_ids.append(cid)

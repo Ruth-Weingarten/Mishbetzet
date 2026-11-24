@@ -248,6 +248,14 @@ def interpret(state: TimetableState):
     return {"action": action.model_dump(), "chat": llm_notice()}
 
 
+def rebuild(state: TimetableState):
+    """בנייה מחדש לפי הכללים הנוכחיים (למשל אחרי שהמנהלת ערכה כללים בלשונית "כללים")."""
+    others = [c for c in state["constraints"] if c.get("source") != "rule"]
+    fresh = [dict(r, source="rule") for r in D.SCHOOL_RULES if r.get("enabled", True)]
+    return {"constraints": fresh + others,
+            "chat": say("בונה מחדש לפי הכללים העדכניים. זה לוקח עד כמה דקות.")}
+
+
 def clarify(state: TimetableState):
     # ⏸ עצירה #3: שאלת הבהרה. התשובה מצורפת לטקסט המקורי ומפוענחת שוב.
     q = state["action"]["question"]
@@ -436,7 +444,8 @@ def route_action(state: TimetableState):
     if t == "decide" and state["action"].get("option") == "show_alternatives":
         return "alternatives"
     return {"decide": "apply_decision", "add_rule": "simulate", "move_lesson": "simulate",
-            "question": "answer", "info": "answer", "approve": "finalize", "unclear": "clarify"}[t]
+            "question": "answer", "info": "answer", "approve": "finalize", "unclear": "clarify",
+            "rebuild": "rebuild"}[t]
 
 
 def route_after_simulate(state: TimetableState):
@@ -460,7 +469,7 @@ def build_graph():
         ("interpret", interpret), ("clarify", clarify), ("answer", answer),
         ("simulate", simulate), ("confirm", confirm), ("apply_action", apply_action),
         ("apply_decision", apply_decision), ("finalize", finalize),
-        ("alternatives", alternatives),
+        ("alternatives", alternatives), ("rebuild", rebuild),
     ]:
         g.add_node(name, fn)
 
@@ -477,12 +486,13 @@ def build_graph():
                             ["apply_decision", "alternatives", "finalize", "interpret"])
     g.add_edge("alternatives", "await_principal")   # חוזרים לאותה עצירה, עם הפתק המעודכן
     g.add_conditional_edges("interpret", route_action,
-                            ["apply_decision", "alternatives", "simulate", "answer", "finalize", "clarify"])
+                            ["apply_decision", "alternatives", "simulate", "answer", "finalize", "clarify", "rebuild"])
     g.add_edge("clarify", "interpret")
     g.add_edge("answer", "await_principal")
     g.add_conditional_edges("simulate", route_after_simulate, ["confirm", "await_principal"])
     g.add_conditional_edges("confirm", route_after_confirm, ["apply_action", "await_principal"])
 
+    g.add_edge("rebuild", "solve")           # לולאה
     g.add_edge("apply_action", "solve")      # לולאה
     g.add_edge("apply_decision", "solve")    # לולאה
     g.add_edge("finalize", "await_principal")

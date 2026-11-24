@@ -85,7 +85,7 @@ class Move(BaseModel):
 
 
 class ChatAction(BaseModel):
-    type: Literal["decide", "add_rule", "move_lesson", "question", "approve", "unclear", "info"]
+    type: Literal["decide", "add_rule", "move_lesson", "question", "approve", "unclear", "info", "rebuild"]
     conflict_id: Optional[str] = None
     option: Optional[str] = Field(None, description="waive=לוותר, alt_day=יום חלופי, show_alternatives=לאכוף (להראות דרכים)")
     rules: list[RuleProposal] = Field(default_factory=list,
@@ -154,6 +154,8 @@ def _fallback_chat(text, conflicts) -> ChatAction:
     t = text.strip()
     if t in ("מאשרת", "אישור", "מאושר") or "מאשרת את המערכת" in t:
         return ChatAction(type="approve", summary="אישור סופי של המערכת")
+    if "מחדש" in t and any(w in t for w in ("בנ", "הרצ", "תריצ", "שבצ")):
+        return ChatAction(type="rebuild", summary="בנייה מחדש")
     if t.startswith("למה") or t.endswith("?"):
         return ChatAction(type="question", summary=t)
     rule = _fallback_rule(t)
@@ -195,7 +197,8 @@ def _build_chains():
          "את עוזרת למנהלת לבנות מערכת שעות. הפכי את ההודעה שלה לפעולה אחת.\n"
          "סוגים: decide (החלטה על חריגה קיימת: waive=לוותר, show_alternatives=לאכוף, alt_day=יום חלופי), "
          "add_rule (כללים חדשים), move_lesson (העברת שיעור), question (שאלה), approve (אישור סופי), "
-         "unclear (לא ברור: נסחי שאלת הבהרה), info (תשובה ישירה בלי שינוי).\n{rules}\n"
+         "unclear (לא ברור: נסחי שאלת הבהרה), info (תשובה ישירה בלי שינוי), "
+         "rebuild (בקשה לבנות את המערכת מחדש לפי הכללים הנוכחיים: \"תבני מחדש\", \"תריצי שוב\"; בלי כללים חדשים).\n{rules}\n"
          "הכללים שכבר פעילים:\n{existing}\n"
          "החריגות הפתוחות:\n{conflicts}\n"
          "השיחה עד כה:\n{history}\n"

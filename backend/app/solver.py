@@ -28,6 +28,20 @@ WEIGHT = 10
 GAP_WEIGHT = 6   # קנס לכל חלון של מורה, בנוסף לכללים
 
 
+_SEED = os.path.join(os.path.dirname(__file__), "seed_solution.json")
+
+
+def _load_seed():
+    """מערכת תקפה שמורה מראש. משמשת כרמז התחלתי לפותר, כדי שימצא פתרון ראשון מהר
+    (עם הכללים הקשיחים, בלי רמז, זה יכול לקחת כמה דקות). אם הנתונים השתנו, הרמז פשוט נפסל חלקית."""
+    try:
+        import json
+        with open(_SEED, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return []
+
+
 def _period_label(d, p):
     return f"{D.DAYS[d]} שעה {p + 1}"
 
@@ -138,7 +152,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
         elif key in cons.get("waived", []):
             return
         else:
-            penalties.append((viol, weight or DEFAULT_WEIGHTS.get(cons["kind"], WEIGHT)))
+            penalties.append((viol, weight or cons.get("weight") or DEFAULT_WEIGHTS.get(cons["kind"], WEIGHT)))
         instances.append((cons["id"], key, label, viol))
 
     gap_cache = {}
@@ -303,6 +317,31 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
                     m.Add(sum(day_busy) + mn * v >= mn * works)
                     soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
+        elif k == "teacher_latest_start":
+            # מורה לא מתחילה את היום אחרי max_start שיעורים: אם יש לה שיעור בשעה מאוחרת, חייב להיות לה שיעור באחת הראשונות
+            ms = prm.get("max_start", 3)
+            for t in D.TEACHERS:
+                for d in range(6):
+                    P = D.PERIODS_PER_DAY[d]
+                    if P <= ms:
+                        continue
+                    v = m.NewBoolVar("")
+                    for p in range(ms, P):
+                        m.AddBoolOr([busy[t, d, p].Not(), v] + [busy[t, d, q] for q in range(ms)])
+                    soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
+
+        elif k == "subject_max_per_day":
+            # אותו מקצוע בכיתה: לא יותר מ-max שיעורים ביום (ולכן גם לא יותר מ-max ברצף)
+            mx = prm.get("max", 2)
+            for c in D.CLASSES:
+                for s in D.CLASS_CURRICULUM[c]:
+                    if is_pullout(c, s):
+                        continue
+                    for d in range(6):
+                        v = m.NewBoolVar("")
+                        m.Add(sum(y[c, s, d, p] for p in range(D.PERIODS_PER_DAY[d])) <= mx + 6 * v)
+                        soft(cons, f"{c}|{s}|{d}", f"{c} · {s} · {D.DAYS[d]}", v)
+
         elif k == "short_day_early":
             # יום קצר (עד max_lessons שיעורים): השיעורים צמודים, ומסתיימים עד last_period
             mx, last = prm.get("max_lessons", 2), prm.get("last_period", 2)
@@ -383,10 +422,15 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
     # יציבות: כל שיעור שזז ממקומו בפתרון הקודם עולה נקודה אחת.
     # כך החלטה קטנה של המנהלת לא "מערבבת" את כל המערכת.
     stability = []
-    for l in hint or []:
+    seed = hint if hint is not None else ([] if previous else _load_seed())
+    for l in seed:
         var = y.get((l["cls"], l["subject"], l["day"], l["period"]))
         if var is not None:
             m.AddHint(var, 1)
+        for t in l.get("teachers", []):
+            cv = choice.get((l["cls"], l["subject"], t))
+            if cv is not None:
+                m.AddHint(cv, 1)
     for l in previous or []:
         var = y.get((l["cls"], l["subject"], l["day"], l["period"]))
         if var is not None:
@@ -401,7 +445,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
     status = solver.Solve(m)
 
     if status not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
-        return {"status": "infeasible", "lessons": [], "violations": []}
+        return {"status": "infeasible", "lessons": [], "violations": [], "raw": solver.StatusName(status)}
 
     lessons = []
     for c in D.CLASSES:

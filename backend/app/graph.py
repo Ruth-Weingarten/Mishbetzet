@@ -119,12 +119,39 @@ def load_data(state: TimetableState):
     return {"constraints": constraints, "pins": [], "round": 0, "published": False, "chat": chat}
 
 
+def _mentioned(teacher, text):
+    """האם שם המורה (או חלק ממנו) מופיע בהערה. מונע מהמודל להמציא מורה שלא הוזכרה."""
+    for tok in teacher.split():
+        for variant in {tok, tok[1:] if tok.startswith("ו") else tok}:
+            if len(variant) >= 2 and variant in text:
+                return True
+    return False
+
+
+def _validate_proposal(item):
+    """בדיקה בקוד של תרגום המודל: מנרמל פרמטרים, ופוסל כלל שלא ניתן להפעיל או שמורה בו לא הוזכרה."""
+    if not item.get("matched"):
+        return
+    from . import tools
+    params, err = tools._check_rule(item["kind"], item.get("params"))
+    if not err and params.get("teacher") and not _mentioned(params["teacher"], item["original"]):
+        err = "המורה בכלל לא הוזכרה בהערה"
+    if err:
+        print(f"[משבצת] הצעת כלל נפסלה ({item['id']}): {err}")
+        item["matched"] = False
+        item["kind"], item["params"] = None, {}
+        return
+    item["params"] = params
+
+
 def translate_notes(state: TimetableState):
     """מתרגם רק את ההערות של המנהלת. בקשות המורות כבר אושרו על ידי המורות עצמן."""
     proposals = []
     for n in D.PRINCIPAL_NOTES:
         p = llm.translate_note(n["text"])
-        proposals.append({"id": n["id"], "source": "מנהלת", "original": n["text"], **p.model_dump()})
+        item = {"id": n["id"], "source": "מנהלת", "original": n["text"], **p.model_dump()}
+        _validate_proposal(item)
+        proposals.append(item)
     return {"proposals": proposals, "chat": llm_notice()}
 
 
@@ -157,8 +184,14 @@ def review_translations(state: TimetableState):
 
 def solve(state: TimetableState):
     prev = (state.get("result") or {}).get("lessons")
-    result = solver.solve(state["constraints"], state.get("pins", []),
-                          time_limit=BUILD_TIME_LIMIT, previous=prev)
+    try:
+        result = solver.solve(state["constraints"], state.get("pins", []),
+                              time_limit=BUILD_TIME_LIMIT, previous=prev)
+    except Exception as e:   # שגיאה בכלל מסוים לא אמורה להפיל את הבנייה בשקט
+        import traceback
+        traceback.print_exc()
+        return {"chat": say(f"הבנייה נכשלה בגלל שגיאה פנימית ({type(e).__name__}: {e}). "
+                            "אפשר לנסות שוב או לבטל את הכללים שנוספו לאחרונה.")}
     rnd = state.get("round", 0) + 1
     if result["status"] == "infeasible":
         return {"result": result, "round": rnd}

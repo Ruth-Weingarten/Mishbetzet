@@ -49,6 +49,25 @@ def _period_label(d, p):
     return f"{D.DAYS[d]} שעה {p + 1}"
 
 
+def _as_list(x):
+    if x is None:
+        return []
+    return list(x) if isinstance(x, (list, tuple, set)) else [x]
+
+
+def _teachers_of(prm):
+    """מורות מתוך הפרמטרים: מקבל teacher או teachers, ומדלג על שמות שאינם במערכת."""
+    names = _as_list(prm.get("teachers")) + _as_list(prm.get("teacher"))
+    return [t for t in dict.fromkeys(names) if t in D.TEACHERS]
+
+
+def _days_of(prm, default_all=False):
+    """ימים מתוך הפרמטרים: מקבל day או days; ימים לא תקינים נזרקים."""
+    ds = _as_list(prm.get("days")) + _as_list(prm.get("day"))
+    ds = [d for d in dict.fromkeys(ds) if isinstance(d, int) and 0 <= d < len(D.DAYS)]
+    return ds if ds or not default_all else list(range(len(D.DAYS)))
+
+
 def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
     """previous: השיעורים מהפתרון הקודם. הפותר משתדל לא להזיז אותם (יציבות).
     hint: פתרון התחלתי בלבד (בלי קנס יציבות): עוזר לפותר למצוא פתרון ראשון מהר."""
@@ -192,7 +211,7 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
             last = ND - 1
             short_last = D.PERIODS_PER_DAY[last] < D.PERIODS_PER_DAY[0]   # יש יום קצר בסוף השבוע
             full_last = bool(prm.get("friday_full")) and short_last
-            days = list(range(last)) if full_last else list(range(ND))
+            days = list(range(last)) if full_last else list(range(len(D.DAYS)))
             for c in D.CLASSES:
                 total = sum(h for s, h in D.CLASS_CURRICULUM[c].items() if not is_pullout(c, s))
                 avg = (total - (D.PERIODS_PER_DAY[last] if full_last else 0)) / len(days)
@@ -385,34 +404,39 @@ def solve(constraints, pins=None, time_limit=8.0, previous=None, hint=None):
                 soft(cons, t, t, v)
 
         elif k == "free_day":
-            t, d = prm["teacher"], prm["day"]
-            v = m.NewBoolVar("")
-            for p in range(D.PERIODS_PER_DAY[d]):
-                m.Add(busy[t, d, p] <= v)
-            soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
+            for t in _teachers_of(prm):
+                for d in _days_of(prm):
+                    v = m.NewBoolVar("")
+                    for p in range(D.PERIODS_PER_DAY[d]):
+                        m.Add(busy[t, d, p] <= v)
+                    soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
         elif k == "teacher_not_periods":
-            for t in prm["teachers"]:
-                for d in prm.get("days", range(ND)):
+            for t in _teachers_of(prm):
+                for d in _days_of(prm, default_all=True):
                     v = m.NewBoolVar("")
-                    for p in prm["periods"]:
+                    for p in prm.get("periods", []):
                         if p < D.PERIODS_PER_DAY[d]:
                             m.Add(busy[t, d, p] <= v)
                     soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
         elif k == "teacher_end_by":
-            t, d, last = prm["teacher"], prm["day"], prm["last_period"]
-            v = m.NewBoolVar("")
-            for p in range(last + 1, D.PERIODS_PER_DAY[d]):
-                m.Add(busy[t, d, p] <= v)
-            soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
+            last = prm["last_period"]
+            for t in _teachers_of(prm):
+                for d in _days_of(prm):
+                    v = m.NewBoolVar("")
+                    for p in range(last + 1, D.PERIODS_PER_DAY[d]):
+                        m.Add(busy[t, d, p] <= v)
+                    soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
         elif k == "teacher_start_from":
-            t, d, first = prm["teacher"], prm["day"], prm["first_period"]
-            v = m.NewBoolVar("")
-            for p in range(0, min(first, D.PERIODS_PER_DAY[d])):
-                m.Add(busy[t, d, p] <= v)
-            soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
+            first = prm["first_period"]
+            for t in _teachers_of(prm):
+                for d in _days_of(prm):
+                    v = m.NewBoolVar("")
+                    for p in range(0, min(first, D.PERIODS_PER_DAY[d])):
+                        m.Add(busy[t, d, p] <= v)
+                    soft(cons, f"{t}|{d}", f"{t} · {D.DAYS[d]}", v)
 
     # מובנה: עדיף שמורה לא תקבל מהמאגר כיתה שחינכה בשנה שעברה
     # --- מינימום חלונות כללי: כל חלון של מורה (בכל יום) עולה קנס קטן.

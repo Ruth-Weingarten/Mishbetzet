@@ -16,7 +16,14 @@
     -> [ענף מותנה לפי סוג ההודעה]
          כפתור   -> apply_decision -> solve      (לולאה!)
          "להראות דרכים" -> alternatives -> await_principal   (מחשב עד 3 דרכים לאכוף)
-         טקסט    -> interpret -> [ענף]
+         טקסט    -> agent (סוכן עם כלים, כשיש מודל)           <- הלולאה של הסוכן:
+                      agent -> [ענף]
+                        קריאות כלים  -> tools -> [ענף]
+                                          הוצעה פעולה -> simulate -> confirm ⏸ -> apply_action -> solve (לולאה!)
+                                          אחרת        -> agent   (חוזרים למודל עם תוצאות הכלים)
+                        תשובה בטקסט  -> agent_reply -> await_principal
+                        כשל במודל    -> interpret (המסווג הישן, גם במצב הדגמה בלי מודל)
+                    interpret -> [ענף]
                       לא ברור  -> clarify ⏸ -> interpret
                       שאלה     -> answer -> await_principal
                       פעולה    -> simulate -> confirm ⏸ -> apply_action -> solve (לולאה!)
@@ -24,6 +31,7 @@
 """
 
 import operator
+import os
 from typing import Annotated, Optional, TypedDict
 
 from langgraph.checkpoint.memory import InMemorySaver
@@ -31,6 +39,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import interrupt
 
 from . import data as D
+from . import agent as agent_lib
 from . import llm, solver
 
 MAX_ALTERNATIVES = 3     # כמה דרכים שונות לאכוף להציע למנהלת
@@ -54,6 +63,9 @@ class TimetableState(TypedDict, total=False):
     simulation: Optional[dict]       # תוצאת ההדמיה של הפעולה
     round: int                       # מונה סבבים
     published: bool
+    agent_msgs: list                 # ההתכתבות של הסוכן עם המודל וכלים, בהודעה הנוכחית בלבד
+    agent_steps: int                 # כמה סבבי מודל כבר היו בהודעה הזאת
+    agent_error: bool                # המודל נכשל: עוברים למסווג הפשוט
 
 
 def llm_notice():
@@ -229,7 +241,8 @@ def alternatives(state: TimetableState):
 def await_principal(state: TimetableState):
     # ⏸ עצירה לאישור אדם #2: המנהלת לוחצת על כפתור, כותבת, או מאשרת.
     msg = interrupt({"type": "decision", "conflicts": state.get("conflicts", [])})
-    update = {"incoming": msg, "action": None, "simulation": None}
+    update = {"incoming": msg, "action": None, "simulation": None,
+              "agent_msgs": [], "agent_steps": 0, "agent_error": False}
     if msg.get("kind") == "text":
         update["chat"] = [{"role": "principal", "text": msg["text"]}]
     return update
@@ -246,6 +259,34 @@ def interpret(state: TimetableState):
     action = llm.interpret(text, state.get("conflicts", []), state.get("constraints", []),
                            history=_history(state))
     return {"action": action.model_dump(), "chat": llm_notice()}
+
+
+def agent_node(state: TimetableState):
+    """הסוכן: מודל שיכול להפעיל כלים. כאן רק קריאה אחת למודל. הלולאה נעשית בקשתות הגרף."""
+    steps = state.get("agent_steps", 0)
+    msgs = state.get("agent_msgs") or agent_lib.start(
+        state["incoming"]["text"], _history(state), state.get("constraints", []))
+    try:
+        ai = agent_lib.call_model(msgs, force_final=steps >= agent_lib.MAX_STEPS)
+    except Exception as e:
+        print(f"[משבצת] הסוכן נכשל, עוברת למסווג הפשוט: {type(e).__name__}: {e}")
+        llm._failed = True
+        return {"agent_msgs": [], "agent_error": True}
+    return {"agent_msgs": msgs + [ai], "agent_steps": steps + 1, "agent_error": False}
+
+
+def tools_node(state: TimetableState):
+    """מריץ את הכלים שהמודל ביקש. כלי קריאה מחזירים נתונים. כלי שינוי רק מכינים פעולה להדמיה ואישור."""
+    results, action, deferred = agent_lib.run_tool_calls(state["agent_msgs"][-1], state)
+    if action and deferred:
+        action = dict(action, unhandled=deferred.get("summary"))
+    return {"agent_msgs": state["agent_msgs"] + results, "action": action}
+
+
+def agent_reply(state: TimetableState):
+    """תשובה בטקסט מהסוכן: שאלה, הסבר, הבהרה או כשאין מה לעשות."""
+    text = agent_lib.text_of(state["agent_msgs"][-1]) or "לא הצלחתי לענות על זה. נסי לנסח אחרת."
+    return {"chat": llm_notice() + say(text)}
 
 
 def rebuild(state: TimetableState):
@@ -439,7 +480,25 @@ def route_message(state: TimetableState):
         return "apply_decision"
     if kind == "approve":
         return "finalize"
-    return "interpret"
+    if llm.USE_LLM and os.environ.get("CHAT_MODE") != "router":
+        return "agent"          # הסוכן החדש. CHAT_MODE=router מחזיר את המסווג הישן (להשוואה בהערכה)
+    return "interpret"          # מצב הדגמה בלי מודל
+
+
+def route_after_agent(state: TimetableState):
+    if state.get("agent_error"):
+        return "interpret"
+    last = state["agent_msgs"][-1]
+    if getattr(last, "tool_calls", None):
+        return "tools"
+    return "agent_reply"
+
+
+def route_after_tools(state: TimetableState):
+    a = state.get("action")
+    if a:
+        return "rebuild" if a["type"] == "rebuild" else "simulate"
+    return "agent"
 
 
 def route_action(state: TimetableState):
@@ -473,6 +532,7 @@ def build_graph():
         ("simulate", simulate), ("confirm", confirm), ("apply_action", apply_action),
         ("apply_decision", apply_decision), ("finalize", finalize),
         ("alternatives", alternatives), ("rebuild", rebuild),
+        ("agent", agent_node), ("tools", tools_node), ("agent_reply", agent_reply),
     ]:
         g.add_node(name, fn)
 
@@ -486,7 +546,10 @@ def build_graph():
     g.add_edge("explain", "await_principal")
 
     g.add_conditional_edges("await_principal", route_message,
-                            ["apply_decision", "alternatives", "finalize", "interpret"])
+                            ["apply_decision", "alternatives", "finalize", "interpret", "agent"])
+    g.add_conditional_edges("agent", route_after_agent, ["tools", "agent_reply", "interpret"])
+    g.add_conditional_edges("tools", route_after_tools, ["agent", "simulate", "rebuild"])   # לולאת הסוכן
+    g.add_edge("agent_reply", "await_principal")
     g.add_edge("alternatives", "await_principal")   # חוזרים לאותה עצירה, עם הפתק המעודכן
     g.add_conditional_edges("interpret", route_action,
                             ["apply_decision", "alternatives", "simulate", "answer", "finalize", "clarify", "rebuild"])

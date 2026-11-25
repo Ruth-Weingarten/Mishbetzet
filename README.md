@@ -88,6 +88,8 @@ backend/app/
   data.py      נתוני בית הספר (קבועים)
   solver.py    פותר האילוצים: בונה מערכת ומחזיר אילו כללים לא קוימו
   llm.py       שרשראות (Prompt | Model | Parser) + מפענח פשוט למצב הדגמה
+  agent.py     ★ הסוכן של הצ'אט: ההנחיה והקריאה למודל עם כלים
+  tools.py     ★ הכלים של הסוכן: 8 כלי קריאה ו-3 כלי שינוי (שעוברים אישור)
   graph.py     ★ הגרף: מצב, צמתים, קשתות, ענפים, לולאות ועצירות
   api.py       השרת: מתחיל ריצה, ממשיך אחרי עצירה, ומחזיר מצב
 frontend/src/
@@ -102,12 +104,22 @@ solve → [בלתי אפשרי] diagnose → await_principal
       → [יש חריגות]  explain  → await_principal
       → [אין חריגות]           → await_principal ⏸
 await_principal → [כפתור]  apply_decision → solve          (לולאה)
-                → [טקסט]   interpret → [לא ברור] clarify ⏸ → interpret
-                                     → [שאלה]    answer → await_principal
-                                     → [פעולה]   simulate → confirm ⏸ → apply_action → solve (לולאה)
+                → [טקסט]   agent → [קריאות כלים] tools → [הוצעה פעולה] simulate → confirm ⏸ → apply_action → solve (לולאה)
+                                                       → [אחרת]       agent                       (לולאת הסוכן)
+                                 → [תשובה בטקסט] agent_reply → await_principal
+                                 → [כשל במודל]   interpret (המסווג הישן)
                 → [אישור]  finalize → await_principal
 ```
 ⏸ = עצירה לאישור אדם.
+
+### הצ'אט: סוכן עם כלים
+המודל לא ממלא טופס סיווג. הוא מקבל כלים, מחליט מה להפעיל ורואה את התוצאה, וחוזר על זה עד שיש לו תשובה
+(`agent → tools → agent`). כלי קריאה (חריגות, מערכת של מורה, סטטיסטיקות, חיפוש שיעורים, שעות פנויות) רצים מיד,
+והחישובים נעשים בקוד. כלי שינוי (`propose_rule`, `propose_move`, `rebuild`) לא משנים כלום: הם מכינים פעולה שעוברת
+הדמיה ועצירה לאישור, ורק אז הפותר בונה. ללא `OPENAI_API_KEY` (או עם `CHAT_MODE=router`) הצ'אט עובד כמסווג הישן.
+
+השוואה ב-LangSmith: `python -m evals.run_experiment --name baseline` (המסווג הישן) מול
+`python -m evals.run_experiment --name agent --target agent` (הסוכן).
 
 ---
 

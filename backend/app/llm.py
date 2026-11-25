@@ -189,7 +189,10 @@ def _build_chains():
         ("system",
          "את מתרגמת הערה של מנהלת בית ספר לכלל אחד מרשימה סגורה.\n{rules}\n"
          "שמות המורות: {teachers}. סגניות: {vice}.\n"
-         "אם אין כלל מתאים, החזירי matched=false. אל תנחשי."),
+         "אם אפשר לבצע את הכוונה באחד הסוגים, גם בהגבלה למורה או ליום, בחרי אותו וכתבי בתקציר מה הכלל יבצע "
+         "(למשל: \"אין חלון ביום שישי למורה X\" = teacher_gaps עם max_per_day=0, days=[5], teachers=[X]; "
+         "\"לא מסיימת בשעה שביעית\" = teacher_not_periods עם periods=[6]). "
+         "אם ההערה כוללת הקשר משיחה קודמת, השתמשי בו. רק אם באמת אין סוג קרוב, החזירי matched=false. אל תנחשי."),
         ("human", "ההערה: {text}"),
     ]).partial(rules=RULE_KINDS_DOC, teachers=", ".join(D.TEACHERS), vice=vice)
 
@@ -292,9 +295,19 @@ def interpret(text: str, conflicts: list, existing: list = (), history: str = ""
         return _fallback_chat(text, conflicts)
     listed = "\n".join(f"- {c['id']}: {c['text']}" for c in conflicts) or "(אין)"
     rules = "\n".join(f"- {c['text']}" for c in existing) or "(אין)"
-    return _safe(lambda: chains()["interpret"].invoke({"text": text, "conflicts": listed, "existing": rules,
-                                                      "history": history or "(תחילת שיחה)"}),
-                 lambda: _fallback_chat(text, conflicts))
+    act = _safe(lambda: chains()["interpret"].invoke({"text": text, "conflicts": listed, "existing": rules,
+                                                     "history": history or "(תחילת שיחה)"}),
+                lambda: _fallback_chat(text, conflicts))
+    # רשת ביטחון: המודל זיהה בקשה לכלל אבל לא החזיר כלל תקין. מנסים שוב דרך שרשרת התרגום הפשוטה
+    # (פלט שטוח, בלי הסוגים האחרים), עם ההקשר מהשיחה, כדי שבקשה פשוטה לא תיפול בגלל מבנה הפלט.
+    if act.type == "add_rule" and not any(r.matched and r.kind for r in act.rules):
+        print(f"[משבצת] המודל לא החזיר כלל תקין להודעה: {text!r}. מנסה שרשרת תרגום. פלט: {act.model_dump()}")
+        note = f"{history}\n{text}" if history else text
+        r = translate_note(note)
+        if r.matched and r.kind:
+            act.rules = [r]
+            act.summary = r.summary
+    return act
 
 
 def explain(conflict: dict) -> str:
